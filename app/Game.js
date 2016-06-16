@@ -9,32 +9,107 @@ import {
   Image
 } from 'react-native';
 
-var Game = React.createClass({
-  render: function() {
-    return (
-    <View style={styles.container}>
-      <View style={styles.wrapper}>
-        <Image
-          style={styles.logo}
-          source={require('./img/NameThatMovie_logov4.png')}
-        />
-      </View>
-    </View>
-    );
-  },
+import api from './utili/api';
+
+    class Game extends Component {
+      constructor(props){
+        super(props);
+        this.ds = new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2 });
+        this.state = {
+          question : "",
+          error: '',
+          dataSource: this.ds.cloneWithRows(this.props.passProps.questions)
+        }
+      }
+
+      // handleChange(e){
+      //   this.setState({
+      //     note: e.nativeEvent.text
+      //   })
+      // }
+
+      // handleSubmit(){
+      //   var question = this.state.question;
+      //   this.setState({
+      //     question: ''
+      //   });
+      //   // api.addQuestion(question)
+      //   //   .then((date) => {
+      //       api.getQuestions()
+      //         .then((data) => {
+      //           this.setState({
+      //             dataSource: this.ds.cloneWithRows(data)
+      //           })
+      //         })
+      //     // })
+      //     .catch((error) => {
+      //       console.log('Request failed', error);
+      //       this.setState({error})
+      //     });
+      // }
 
 
-});
+      renderRow(rowData){
+        return (
+
+            <View style={styles.rowContainer}>
+              <View style={styles.wrapper}>
+
+                <Text style={styles.question}> {rowData.QuestionOne} </Text>
+
+                <TouchableHighlight
+                  style={styles.answers}>
+                    <Text> {rowData.Answers.A1} </Text>
+                </TouchableHighlight>
+
+                <TouchableHighlight
+                  style={styles.answers}>
+                    <Text> {rowData.Answers.B1} </Text>
+                </TouchableHighlight>
+
+                <TouchableHighlight
+                  style={styles.answers}>
+                    <Text> {rowData.Answers.C1} </Text>
+                </TouchableHighlight>
+
+                <TouchableHighlight
+                  style={styles.answers}>
+                    <Text> {rowData.Answers.D1} </Text>
+                </TouchableHighlight>
+              </View>
+            </View>
+
+        )
+      }
+      render(){
+        var currentQuestion = 0;
+        return (
+          <View style={styles.container}>
+            <Image
+              style={styles.logo}
+              source={require('./img/NameThatMovie_logov5.png')}
+            />
+
+            <ListView
+              dataSource={this.state.dataSource}
+              renderRow={this.renderRow}
+              />
+          </View>
+        )
+      }
+
+    }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#e040fb',
+    backgroundColor: '#1976d2',
   },
   wrapper: {
     flex: 1,
+    marginTop: 50,
     alignItems: 'center',
   },
   logo: {
@@ -43,20 +118,18 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginLeft: -170,
   },
-  playNow: {
-    backgroundColor: '#bbdefb',
-    padding: 20,
-    paddingLeft: 70,
-    paddingRight: 70,
-    borderRadius: 5,
-    marginBottom: 10,
+  question: {
+    fontSize: 20,
+    marginBottom: 15,
   },
-  loginButton: {
+  answers: {
+    marginBottom: 10,
     backgroundColor: '#bbdefb',
-    padding: 20,
+    padding: 10,
     paddingLeft: 32,
     paddingRight: 32,
     borderRadius: 5,
+    overflow: 'hidden',
   },
 });
 

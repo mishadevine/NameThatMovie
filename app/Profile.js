@@ -9,6 +9,8 @@ import {
   Image
 } from 'react-native';
 
+import api from './utili/api';
+
 var Profile = React.createClass({
   render: function() {
     return (
@@ -16,7 +18,7 @@ var Profile = React.createClass({
       <View style={styles.wrapper}>
         <Image
           style={styles.logo}
-          source={require('./img/NameThatMovie_logov4.png')}
+          source={require('./img/NameThatMovie_logov5.png')}
         />
       </View>
       <View style={styles.buttons}>
@@ -53,8 +55,15 @@ var Profile = React.createClass({
   },
 
   fav: function() {
-    this.props.navigator.push({
-      name: 'FavMovies',
+    api.getQuestions()
+    .then((res) => {
+      res = res || {};
+      this.props.navigator.push({
+        name: 'FavMovies',
+        passProps: {
+          questions: res
+        }
+      })
     });
   },
 
@@ -65,7 +74,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#e040fb',
+    backgroundColor: '#1976d2',
   },
   wrapper: {
     flex: 1,

@@ -5,41 +5,41 @@ import {
   View,
   TouchableHighlight,
   TextInput,
-  ListView
+  ListView,
+  Image
 } from 'react-native';
 
 import api from './utili/api';
+
+// var FavMovies = React.createClass({
+//   render: function() {
+
 
 class FavMovies extends Component {
   constructor(props){
     super(props);
     this.ds = new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2 });
     this.state = {
-      note : "",
+      question : "",
       error: '',
-      dataSource: this.ds.cloneWithRows(this.props.passProps.notes)
+      dataSource: this.ds.cloneWithRows(this.props.passProps.questions)
     }
-  }
-
-  onButtonPress(){
-    this.props.navigator.pop ({
-    });
   }
 
   handleChange(e){
     this.setState({
-      note: e.nativeEvent.text
+      question: e.nativeEvent.text
     })
   }
 
   handleSubmit(){
-    var note = this.state.note;
+    var question = this.state.question;
     this.setState({
-      note: ''
+      question: ''
     });
-    api.addNote(note)
+    api.addQuestion(question)
       .then((date) => {
-        api.getNotes()
+        api.getQuestions()
           .then((data) => {
             this.setState({
               dataSource: this.ds.cloneWithRows(data)
@@ -52,21 +52,28 @@ class FavMovies extends Component {
       });
   }
 
-  submitBar(){
+  submitBar() {
     return (
-      <View style={styles.footerContainer}>
-        <TextInput
-          style={styles.searchInput}
-          value={this.state.note}
-          onChange={this.handleChange.bind(this)}
-          placeholder="New Note" />
-        <TouchableHighlight
-          style={styles.button}
-          onPress={this.handleSubmit.bind(this)}
-          underlayColor="#88d4f5"
-          >
+      <View style={styles.container}>
+        <View style={styles.wrapper}>
+          <Text style={styles.header}>
+            Your Favorite Movies
+          </Text>
+        </View>
+        <View style={styles.middle}>
+          <TextInput
+            style={styles.searchInput}
+            value={this.state.question}
+            onChange={this.handleChange.bind(this)}
+            placeholder="Enter A Movie" />
+          <TouchableHighlight
+            style={styles.button}
+            onPress={this.handleSubmit.bind(this)}
+            underlayColor="#88d4f5"
+            >
             <Text style={styles.buttonText}>Submit</Text>
-        </TouchableHighlight>
+          </TouchableHighlight>
+        </View>
       </View>
     )
   }
@@ -80,7 +87,6 @@ class FavMovies extends Component {
 
     )
   }
-
   render(){
     return (
       <View style={styles.container}>
@@ -92,37 +98,83 @@ class FavMovies extends Component {
       </View>
     )
   }
-};
+
+}
+
+    // return (
+    //   <View style={styles.container}>
+    //     <View style={styles.wrapper}>
+    //       <Text style={styles.header}>
+    //         Your Favorite Movies
+    //       </Text>
+    //     </View>
+    //     <View style={styles.middle}>
+    //       <TextInput
+    //         style={styles.searchInput}
+    //         placeholder="Enter A Movie" />
+    //       <TouchableHighlight
+    //         style={styles.button}
+    //         underlayColor="#88d4f5"
+    //         >
+    //         <Text style={styles.buttonText}>Submit</Text>
+    //       </TouchableHighlight>
+    //     </View>
+    //   </View>
+    // );
+//   }
+//
+//
+// });
+
+
+
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  buttonText: {
-    fontSize: 18,
-    color: 'white',
-  },
-  button: {
-    height: 60,
-    backgroundColor: '#48bbec',
-    flex: 3,
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#1976d2',
+  },
+  wrapper: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  header: {
+    marginTop: 50,
+    fontFamily: "DK Lemon Yellow Sun",
+    fontSize: 30,
+    color: '#fff',
+  },
+  middle: {
+    flex: 4,
+    marginLeft: 20,
+  },
+  logo: {
+    height: 100,
+    width: 100,
+    marginTop: 30,
+    marginLeft: -170,
   },
   searchInput: {
     height: 60,
+    width: 220,
     padding: 10,
     fontSize: 18,
-    color: '#111',
-    flex: 10,
+    backgroundColor: '#b6b6b6',
+    marginLeft: -20,
   },
-  rowContainer: {
-    padding: 10,
-  },
-  footerContainer: {
-    backgroundColor: '#dddfd4',
+  button: {
+    height: 60,
+    width: 100,
+    marginLeft: 200,
+    marginTop: -60,
+    backgroundColor: '#e040fb',
     alignItems: 'center',
-    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    color: '#fff',
   },
 });
 

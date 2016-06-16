@@ -16,7 +16,7 @@ var Recommendations = React.createClass({
       <View style={styles.wrapper}>
         <Image
           style={styles.logo}
-          source={require('./img/NameThatMovie_logov4.png')}
+          source={require('./img/NameThatMovie_logov5.png')}
         />
       </View>
     </View>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#e040fb',
+    backgroundColor: '#1976d2',
   },
   wrapper: {
     flex: 1,

@@ -8,18 +8,51 @@ import {
 } from 'react-native';
 
 import Auth0Lock from 'react-native-lock';
+import api from './utili/api';
 
 var credentials = require('./auth0-credentials');
 
 var lock = new Auth0Lock(credentials);
 
 var Home = React.createClass({
+
+  play: function() {
+    api.getQuestions()
+    .then((res) => {
+      res = res || {};
+      this.props.navigator.push({
+        id: 'Game',
+        passProps: {
+          questions: res
+        }
+      })
+    });
+  },
+// add api call
+  login: function() {
+    lock.show({
+      closable: true,
+    }, (err, profile, token) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      this.props.navigator.push({
+        id: 'Profile',
+        passProps: {
+          profile: profile,
+          token: token,
+        }
+      });
+    });
+  },
+
   render: function() {
     return (
     <View style={styles.container}>
       <Image
         style={styles.logo}
-        source={require('./img/NameThatMovie_logov4.png')}
+        source={require('./img/NameThatMovie_logov5.png')}
       />
       <TouchableHighlight
         style={styles.playNow}
@@ -35,31 +68,6 @@ var Home = React.createClass({
     </View>
     );
   },
-
-  play: function() {
-    this.props.navigator.push({
-      name: 'Game',
-    });
-  },
-
-  login: function() {
-    lock.show({
-      closable: true,
-    }, (err, profile, token) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
-      this.props.navigator.push({
-        name: 'Profile',
-        passProps: {
-          profile: profile,
-          token: token,
-        }
-      });
-    });
-  },
-
 });
 
 const styles = StyleSheet.create({
@@ -67,7 +75,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#e040fb',
+    backgroundColor: '#1976d2',
   },
   wrapper: {
     flex: 1,
