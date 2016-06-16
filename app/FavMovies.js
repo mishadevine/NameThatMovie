@@ -63,7 +63,7 @@ class FavMovies extends Component {
         <View style={styles.middle}>
           <TextInput
             style={styles.searchInput}
-            value={this.state.question}
+            value={this.state.movie}
             onChange={this.handleChange.bind(this)}
             placeholder="Enter A Movie" />
           <TouchableHighlight

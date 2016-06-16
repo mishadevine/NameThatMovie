@@ -17,6 +17,11 @@ class AddQuest extends Component {
     this.ds = new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2 });
     this.state = {
       newquestion : "",
+      answerA : "",
+      answerB: "",
+      answerC : "",
+      answerD : "",
+      correctanswer : "",
       error: '',
       dataSource: this.ds.cloneWithRows(this.props.passProps.newquestions)
     }
@@ -54,9 +59,34 @@ class AddQuest extends Component {
         <View style={styles.middle}>
           <TextInput
             style={styles.searchInput}
-            value={this.state.question}
+            value={this.state.newquestion}
             onChange={this.handleChange.bind(this)}
-            placeholder="Enter A Movie" />
+            placeholder="Enter A Question" />
+          <TextInput
+            style={styles.searchInput}
+            value={this.state.answerA}
+            onChange={this.handleChange.bind(this)}
+            placeholder="Enter Answer A" />
+          <TextInput
+            style={styles.searchInput}
+            value={this.state.answerB}
+            onChange={this.handleChange.bind(this)}
+            placeholder="Enter Answer B" />
+          <TextInput
+            style={styles.searchInput}
+            value={this.state.answerC}
+            onChange={this.handleChange.bind(this)}
+            placeholder="Enter Answer C" />
+          <TextInput
+            style={styles.searchInput}
+            value={this.state.answerD}
+            onChange={this.handleChange.bind(this)}
+            placeholder="Enter Answer D" />
+          <TextInput
+            style={styles.searchInput}
+            value={this.state.correctanswer}
+            onChange={this.handleChange.bind(this)}
+            placeholder="Enter Correct Answer" />
           <TouchableHighlight
             style={styles.button}
             onPress={this.handleSubmit.bind(this)}
@@ -69,37 +99,29 @@ class AddQuest extends Component {
     )
   }
 
-  renderRow(rowData){
-    return (
-
-        <View style={styles.rowContainer}>
-          <Text> {rowData.Question} </Text>
-          <Text> {rowData.Answers.A1} </Text>
-          <Text> {rowData.Answers.B1} </Text>
-          <Text> {rowData.Answers.C1} </Text>
-          <Text> {rowData.Answers.D1} </Text>
-          <Text> {rowData.CorrectAnswer} </Text>
-        </View>
-
-    )
-  }
+  // renderRow(rowData){
+  //   return (
+  //
+  //       <View style={styles.rowContainer}>
+  //         <Text> {rowData.Question} </Text>
+  //         <Text> {rowData.Answers.A1} </Text>
+  //         <Text> {rowData.Answers.B1} </Text>
+  //         <Text> {rowData.Answers.C1} </Text>
+  //         <Text> {rowData.Answers.D1} </Text>
+  //         <Text> {rowData.CorrectAnswer} </Text>
+  //       </View>
+  //
+  //   )
+  // }
   render(){
     return (
       <View style={styles.container}>
         <View style={styles.wrapper}>
-          <Image
-            style={styles.logo}
-            source={require('./img/NameThatMovie_logov5.png')}
-          />
           <Text style={styles.header}>
             Add Questions
           </Text>
           <Text style={styles.expl}> Got a question you want to see in the game? Add it below!</Text>
         </View>
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={this.renderRow}
-          />
           {this.submitBar()}
       </View>
     )
@@ -151,14 +173,15 @@ const styles = StyleSheet.create({
     fontFamily: "DK Lemon Yellow Sun",
     fontSize: 30,
     color: '#fff',
+    marginBottom: 10,
   },
   expl: {
     alignItems: 'center',
     marginBottom: 10,
   },
   middle: {
-    flex: 4,
     marginLeft: 20,
+    marginTop: -250,
   },
   logo: {
     height: 100,
@@ -173,15 +196,18 @@ const styles = StyleSheet.create({
     fontSize: 18,
     backgroundColor: '#b6b6b6',
     marginLeft: -20,
+    marginBottom: 10,
+    borderRadius: 5,
+    alignSelf: 'center',
   },
   button: {
     height: 60,
-    width: 100,
-    marginLeft: 200,
-    marginTop: -60,
+    width: 220,
     backgroundColor: '#e040fb',
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius: 5,
+    marginRight: 20,
   },
   buttonText: {
     color: '#fff',
