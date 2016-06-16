@@ -37,6 +37,11 @@ var Profile = React.createClass({
           onPress={this.fav}>
             <Text>Favorite Movies</Text>
         </TouchableHighlight>
+        <TouchableHighlight
+          style={styles.addquestion}
+          onPress={this.newQuest}>
+            <Text> Add Questions To The Game </Text>
+        </TouchableHighlight>
       </View>
     </View>
     );
@@ -69,6 +74,19 @@ var Profile = React.createClass({
         name: 'FavMovies',
         passProps: {
           movies: res
+        }
+      })
+    });
+  },
+
+  newQuest: function() {
+    api.getNewQuestions()
+    .then((res) => {
+      res = res || {};
+      this.props.navigator.push({
+        name: 'AddQuest',
+        passProps: {
+          newquestions: res
         }
       })
     });
@@ -115,6 +133,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   favMovies: {
+    backgroundColor: '#bbdefb',
+    padding: 20,
+    paddingLeft: 32,
+    paddingRight: 32,
+    borderRadius: 5,
+    marginBottom: 10,
+    alignItems: 'center',
+  },
+  addquestion: {
     backgroundColor: '#bbdefb',
     padding: 20,
     paddingLeft: 32,

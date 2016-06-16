@@ -6,7 +6,8 @@ import {
   TouchableHighlight,
   TextInput,
   ListView,
-  Image
+  Image,
+  Navigator
 } from 'react-native';
 
 import api from './utili/api';
@@ -89,7 +90,6 @@ import api from './utili/api';
               style={styles.logo}
               source={require('./img/NameThatMovie_logov5.png')}
             />
-
             <ListView
               dataSource={this.state.dataSource}
               renderRow={this.renderRow}
@@ -131,6 +131,9 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     overflow: 'hidden',
   },
+  addquestion: {
+    backgroundColor: 'red',
+  }
 });
 
 

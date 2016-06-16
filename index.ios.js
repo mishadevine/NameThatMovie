@@ -10,6 +10,7 @@ import {
   import Profile from './app/Profile';
   import Recommendations from './app/Recommendations';
   import FavMovies from './app/FavMovies';
+  import AddQuest from './app/AddQuest';
 
   class NameThatMovie extends Component {
     render() {
@@ -36,6 +37,9 @@ import {
      }
      if (route.name == "FavMovies") {
        return <FavMovies navigator={navigator} passProps={route.passProps} />
+     }
+     if (route.name == "AddQuest") {
+       return <AddQuest navigator={navigator} passProps={route.passProps} />
      }
    }
 

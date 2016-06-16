@@ -21,7 +21,7 @@ var Home = React.createClass({
     .then((res) => {
       res = res || {};
       this.props.navigator.push({
-        id: 'Game',
+        name: 'Game',
         passProps: {
           questions: res
         }
