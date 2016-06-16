@@ -90,5 +90,17 @@
         "D" : "Penguins of Madagascar"
       }
     }
+  },
+  "myfavmovies" : {
+    "movie0" : "Harry Potter Series",
+    "movie1" : "Sister Act Series",
+    "movie2" : "Twilight Series",
+    "movie3" : "The Hunger Games Series",
+    "movie4" : "The Little Mermaid",
+    "movie5" : "Distubia",
+    "movie6" : "Tracers",
+    "movie7" : "Drumline",
+    "movie8" : "Honey",
+    "movie9" : "Finding Nemo"
   }
 }

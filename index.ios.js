@@ -15,26 +15,26 @@ import {
     render() {
       return (
         <Navigator style={styles.navigator}
-          initialRoute={{ id: "Home"}}
+          initialRoute={{ name: "Home"}}
           renderScene= { this.renderScene }
         />
       );
     }
 
     renderScene(route, navigator) {
-     if (route.id == "Home") {
+     if (route.name == "Home") {
        return <Home navigator={navigator} passProps={route.passProps} />
      }
-     if (route.id == "Profile") {
+     if (route.name == "Profile") {
        return <Profile navigator={navigator} passProps={route.passProps} />
      }
-     if (route.id == "Game") {
+     if (route.name == "Game") {
        return <Game navigator={navigator} passProps={route.passProps} />
      }
-     if (route.id == "Recommendations") {
+     if (route.name == "Recommendations") {
        return <Recommendations navigator={navigator} passProps={route.passProps} />
      }
-     if (route.id == "FavMovies") {
+     if (route.name == "FavMovies") {
        return <FavMovies navigator={navigator} passProps={route.passProps} />
      }
    }

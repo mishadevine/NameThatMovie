@@ -43,8 +43,15 @@ var Profile = React.createClass({
   },
 
   play: function() {
-    this.props.navigator.push({
-      name: 'Game',
+    api.getQuestions()
+    .then((res) => {
+      res = res || {};
+      this.props.navigator.push({
+        name: 'Game',
+        passProps: {
+          questions: res
+        }
+      })
     });
   },
 
@@ -55,13 +62,13 @@ var Profile = React.createClass({
   },
 
   fav: function() {
-    api.getQuestions()
+    api.getMovies()
     .then((res) => {
       res = res || {};
       this.props.navigator.push({
         name: 'FavMovies',
         passProps: {
-          questions: res
+          movies: res
         }
       })
     });

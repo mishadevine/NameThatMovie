@@ -20,26 +20,26 @@ class FavMovies extends Component {
     super(props);
     this.ds = new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2 });
     this.state = {
-      question : "",
+      movie : "",
       error: '',
-      dataSource: this.ds.cloneWithRows(this.props.passProps.questions)
+      dataSource: this.ds.cloneWithRows(this.props.passProps.movies)
     }
   }
 
   handleChange(e){
     this.setState({
-      question: e.nativeEvent.text
+      movie: e.nativeEvent.text
     })
   }
 
   handleSubmit(){
-    var question = this.state.question;
+    var movie = this.state.movie;
     this.setState({
-      question: ''
+      movie: ''
     });
-    api.addQuestion(question)
+    api.addMovie(movie)
       .then((date) => {
-        api.getQuestions()
+        api.getMovies()
           .then((data) => {
             this.setState({
               dataSource: this.ds.cloneWithRows(data)
@@ -90,6 +90,10 @@ class FavMovies extends Component {
   render(){
     return (
       <View style={styles.container}>
+        <Image
+          style={styles.logo}
+          source={require('./img/NameThatMovie_logov5.png')}
+        />
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this.renderRow}

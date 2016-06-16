@@ -38,7 +38,7 @@ var Home = React.createClass({
         return;
       }
       this.props.navigator.push({
-        id: 'Profile',
+        name: 'Profile',
         passProps: {
           profile: profile,
           token: token,
