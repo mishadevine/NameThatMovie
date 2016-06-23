@@ -120,7 +120,8 @@ class AddQuest extends Component {
           <Text style={styles.header}>
             Add Questions
           </Text>
-          <Text style={styles.expl}> Got a question you want to see in the game? Add it below!</Text>
+          <Text style={styles.expl}> Got a question you want to see in the game?</Text>
+          <Text style={styles.expl1}> Add it below!</Text>
         </View>
           {this.submitBar()}
       </View>
@@ -177,7 +178,12 @@ const styles = StyleSheet.create({
   },
   expl: {
     alignItems: 'center',
+    fontSize: 15,
+  },
+  expl1: {
+    alignItems: 'center',
     marginBottom: 10,
+    fontSize: 15,
   },
   middle: {
     marginLeft: 20,
@@ -199,6 +205,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderRadius: 5,
     alignSelf: 'center',
+    fontFamily: "Papyrus",
   },
   button: {
     height: 60,

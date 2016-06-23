@@ -60,9 +60,17 @@ var Profile = React.createClass({
     });
   },
 
+
   rec: function() {
-    this.props.navigator.push({
-      name: 'Recommendations',
+    api.getMovies()
+    .then((res) => {
+      res = res || {};
+      this.props.navigator.push({
+        name: 'Recommendations',
+        passProps: {
+          movies: res
+        }
+      })
     });
   },
 

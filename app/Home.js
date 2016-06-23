@@ -16,6 +16,19 @@ var lock = new Auth0Lock(credentials);
 
 var Home = React.createClass({
 
+  toDo: function() {
+    api.getMovies()
+    .then((res) => {
+      res = res || {};
+      this.props.navigator.push({
+        name: 'ToDoList',
+        passProps: {
+          movies: res
+        }
+      })
+    });
+  },
+
   play: function() {
     api.getQuestions()
     .then((res) => {
@@ -55,14 +68,19 @@ var Home = React.createClass({
         source={require('./img/NameThatMovie_logov5.png')}
       />
       <TouchableHighlight
+        style={styles.todoList}
+        onPress={this.toDo}>
+          <Text style={styles.todo}>To Do List</Text>
+      </TouchableHighlight>
+      <TouchableHighlight
         style={styles.playNow}
         onPress={this.play}>
-          <Text>Play Now</Text>
+          <Text style={styles.play}>Play Now</Text>
       </TouchableHighlight>
       <TouchableHighlight
         style={styles.loginButton}
         onPress={this.login}>
-          <Text>Login With Facebook</Text>
+          <Text style={styles.login}>Login With Facebook</Text>
       </TouchableHighlight>
 
     </View>
@@ -102,6 +120,26 @@ const styles = StyleSheet.create({
     paddingLeft: 32,
     paddingRight: 32,
     borderRadius: 5,
+  },
+  play: {
+    fontFamily: "Papyrus",
+    fontSize: 15,
+  },
+  login: {
+    fontFamily: "Papyrus",
+    fontSize: 15,
+  },
+  todo: {
+    fontFamily: "Papyrus",
+    fontSize: 15,
+  },
+  todoList: {
+    backgroundColor: '#bbdefb',
+    padding: 20,
+    paddingLeft: 70,
+    paddingRight: 70,
+    borderRadius: 5,
+    marginBottom: 10,
   },
 });
 

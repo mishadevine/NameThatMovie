@@ -6,14 +6,10 @@ import {
   TouchableHighlight,
   TextInput,
   ListView,
-  Image
+  Image,
 } from 'react-native';
 
 import api from './utili/api';
-
-// var FavMovies = React.createClass({
-//   render: function() {
-
 
 class FavMovies extends Component {
   constructor(props){
@@ -54,13 +50,8 @@ class FavMovies extends Component {
 
   submitBar() {
     return (
-      <View style={styles.container}>
-        <View style={styles.wrapper}>
-          <Text style={styles.header}>
-            Your Favorite Movies
-          </Text>
-        </View>
-        <View style={styles.middle}>
+
+      <View style={styles.footerContainer}>
           <TextInput
             style={styles.searchInput}
             value={this.state.movie}
@@ -73,18 +64,15 @@ class FavMovies extends Component {
             >
             <Text style={styles.buttonText}>Submit</Text>
           </TouchableHighlight>
-        </View>
       </View>
     )
   }
 
   renderRow(rowData){
     return (
-
-        <View style={styles.rowContainer}>
-          <Text> {rowData} </Text>
-        </View>
-
+      <View style={styles.rowContainer}>
+          <Text style={styles.movieList}> {rowData} </Text>
+      </View>
     )
   }
   render(){
@@ -94,10 +82,17 @@ class FavMovies extends Component {
           style={styles.logo}
           source={require('./img/NameThatMovie_logov5.png')}
         />
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={this.renderRow}
-          />
+        <View style={styles.wrapper}>
+          <Text style={styles.header}>
+            Your Favorite Movies
+          </Text>
+        </View>
+        <View style={styles.middleContent}>
+          <ListView
+            dataSource={this.state.dataSource}
+            renderRow={this.renderRow}
+            />
+        </View>
           {this.submitBar()}
       </View>
     )
@@ -105,40 +100,15 @@ class FavMovies extends Component {
 
 }
 
-    // return (
-    //   <View style={styles.container}>
-    //     <View style={styles.wrapper}>
-    //       <Text style={styles.header}>
-    //         Your Favorite Movies
-    //       </Text>
-    //     </View>
-    //     <View style={styles.middle}>
-    //       <TextInput
-    //         style={styles.searchInput}
-    //         placeholder="Enter A Movie" />
-    //       <TouchableHighlight
-    //         style={styles.button}
-    //         underlayColor="#88d4f5"
-    //         >
-    //         <Text style={styles.buttonText}>Submit</Text>
-    //       </TouchableHighlight>
-    //     </View>
-    //   </View>
-    // );
-//   }
-//
-//
-// });
-
-
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#1976d2',
+  },
+  middleContent: {
+    flex: 4,
   },
   wrapper: {
     flex: 1,
@@ -150,15 +120,19 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: '#fff',
   },
-  middle: {
-    flex: 4,
-    marginLeft: 20,
-  },
   logo: {
     height: 100,
     width: 100,
     marginTop: 30,
     marginLeft: -170,
+  },
+  rowContainer: {
+    alignItems: 'center',
+  },
+  movieList: {
+    fontSize: 16,
+    marginBottom: 15,
+    fontFamily: "Papyrus",
   },
   searchInput: {
     height: 60,
@@ -167,6 +141,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     backgroundColor: '#b6b6b6',
     marginLeft: -20,
+    fontFamily: "Papyrus",
+  },
+  footerContainer: {
+    marginBottom: 30,
+    marginLeft: 20,
   },
   button: {
     height: 60,

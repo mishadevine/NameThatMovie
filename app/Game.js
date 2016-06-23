@@ -15,85 +15,63 @@ import api from './utili/api';
     class Game extends Component {
       constructor(props){
         super(props);
-        this.ds = new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2 });
         this.state = {
-          question : "",
+          movie : "",
           error: '',
-          dataSource: this.ds.cloneWithRows(this.props.passProps.questions)
+          getQuestions(){
+            var url = ``;
+            return fetch(url).then((res) => res.json());
+          },
         }
       }
 
-      // handleChange(e){
-      //   this.setState({
-      //     note: e.nativeEvent.text
-      //   })
+
+
+      // renderRow(rowData){
+      //   return (
+      //
+      //       <View style={styles.rowContainer}>
+      //         <View style={styles.wrapper}>
+      //
+      //           <Text style={styles.question}> {this.QuestionOne} </Text>
+      //
+      //           <TouchableHighlight
+      //             style={styles.answers}>
+      //               <Text> {rowData.Answers.A1} </Text>
+      //           </TouchableHighlight>
+      //
+      //           <TouchableHighlight
+      //             style={styles.answers}>
+      //               <Text> {rowData.Answers.B1} </Text>
+      //           </TouchableHighlight>
+      //
+      //           <TouchableHighlight
+      //             style={styles.answers}>
+      //               <Text> {rowData.Answers.C1} </Text>
+      //           </TouchableHighlight>
+      //
+      //           <TouchableHighlight
+      //             style={styles.answers}>
+      //               <Text> {rowData.Answers.D1} </Text>
+      //           </TouchableHighlight>
+      //         </View>
+      //       </View>
+      //
+      //   )
       // }
-
-      // handleSubmit(){
-      //   var question = this.state.question;
-      //   this.setState({
-      //     question: ''
-      //   });
-      //   // api.addQuestion(question)
-      //   //   .then((date) => {
-      //       api.getQuestions()
-      //         .then((data) => {
-      //           this.setState({
-      //             dataSource: this.ds.cloneWithRows(data)
-      //           })
-      //         })
-      //     // })
-      //     .catch((error) => {
-      //       console.log('Request failed', error);
-      //       this.setState({error})
-      //     });
-      // }
-
-
-      renderRow(rowData){
-        return (
-
-            <View style={styles.rowContainer}>
-              <View style={styles.wrapper}>
-
-                <Text style={styles.question}> {rowData.QuestionOne} </Text>
-
-                <TouchableHighlight
-                  style={styles.answers}>
-                    <Text> {rowData.Answers.A1} </Text>
-                </TouchableHighlight>
-
-                <TouchableHighlight
-                  style={styles.answers}>
-                    <Text> {rowData.Answers.B1} </Text>
-                </TouchableHighlight>
-
-                <TouchableHighlight
-                  style={styles.answers}>
-                    <Text> {rowData.Answers.C1} </Text>
-                </TouchableHighlight>
-
-                <TouchableHighlight
-                  style={styles.answers}>
-                    <Text> {rowData.Answers.D1} </Text>
-                </TouchableHighlight>
-              </View>
-            </View>
-
-        )
-      }
-      render(){
-        var currentQuestion = 0;
+      render(rowData){
         return (
           <View style={styles.container}>
             <Image
               style={styles.logo}
               source={require('./img/NameThatMovie_logov5.png')}
             />
-            <ListView
-              dataSource={this.state.dataSource}
-              renderRow={this.renderRow}
-              />
+            <View style={styles.wrapper}>
+
+              <Text style={styles.question}> {this.QuestionOne} </Text>
+
+
+            </View>
           </View>
         )
       }
