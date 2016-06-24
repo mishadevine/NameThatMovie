@@ -1,35 +1,35 @@
 var api = {
   addQuestion(question){
-    var url = `https://name-that-movie.firebaseio.com/questionsANDanswers.json`;
+    var url = `https://name-that-movie.firebaseio.com/0/questionsANDanswers.json`;
     return fetch(url, {
       method: 'post',
       body: JSON.stringify(question)
     }).then((res) => res.json());
   },
   getQuestions(){
-    var url = `https://name-that-movie.firebaseio.com/questionsANDanswers.json`;
+    var url = `https://name-that-movie.firebaseio.com/0/questionsANDanswers.json`;
     return fetch(url).then((res) => res.json());
   },
   addNewQuestion(newquestion){
-    var url = `https://name-that-movie.firebaseio.com/newquestions.json`;
+    var url = `https://name-that-movie.firebaseio.com/0/newquestions.json`;
     return fetch(url, {
       method: 'post',
       body: JSON.stringify(newquestion)
     }).then((res) => res.json());
   },
   getNewQuestions(){
-    var url = `https://name-that-movie.firebaseio.com/newquestions.json`;
+    var url = `https://name-that-movie.firebaseio.com/0/newquestions.json`;
     return fetch(url).then((res) => res.json());
   },
   addMovie(movie){
-    var url = `https://name-that-movie.firebaseio.com/myfavmovies.json`;
+    var url = `https://name-that-movie.firebaseio.com/0/myfavmovies.json`;
     return fetch(url, {
       method: 'post',
       body: JSON.stringify(movie)
     }).then((res) => res.json());
   },
   getMovies(){
-    var url = `https://name-that-movie.firebaseio.com/myfavmovies.json`;
+    var url = `https://name-that-movie.firebaseio.com/0/myfavmovies.json`;
     return fetch(url).then((res) => res.json());
   },
 };

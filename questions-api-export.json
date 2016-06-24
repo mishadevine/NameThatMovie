@@ -1,4 +1,4 @@
-{
+[{
   "questionsANDanswers" : {
     "Question1" : {
       "QuestionOne" : "I bet it feels huge in this hand.",
@@ -115,4 +115,4 @@
       "CorrectAnswer" : "D1"
     }
   }
-}
+}]

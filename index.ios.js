@@ -11,8 +11,6 @@ import {
   import Recommendations from './app/Recommendations';
   import FavMovies from './app/FavMovies';
   import AddQuest from './app/AddQuest';
-  import MenuExample from './app/MenuExample';
-  import ToDoList from './app/ToDoList';
 
   class NameThatMovie extends Component {
     render() {
@@ -42,12 +40,6 @@ import {
      }
      if (route.name == "AddQuest") {
        return <AddQuest navigator={navigator} passProps={route.passProps} />
-     }
-     if (route.name == "MenuExample") {
-       return <MenuExample navigator={navigator} passProps={route.passProps} />
-     }
-     if (route.name == "ToDoList") {
-       return <ToDoList navigator={navigator} passProps={route.passProps} />
      }
    }
 
