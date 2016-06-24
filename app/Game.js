@@ -15,6 +15,34 @@ import api from './utili/api';
     class Game extends Component {
       constructor(props){
         super(props);
+
+
+
+
+
+        // this.ds = new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2 });
+        this.state = {
+          movie : "",
+          error: '',
+          // dataSource: this.props.passProps.movies
+        }
+
+
+        // function createHtmlList(game) {
+        //   const listElements = game.map(x => `<li>${x}</li>`).join('');
+        //   return `<ul>${listElements}</ul>`
+        //
+        // }
+      }
+
+      // (
+      //   <View style={styles.rowContainer}>
+      //     <Text style={styles.wrapper}> {mapped} </Text>
+      //   </View>
+      // )
+
+
+      renderRow(game){
         var game = [{
             "Question1" : {
               "Question" : "I bet it feels huge in this hand.",
@@ -44,69 +72,26 @@ import api from './utili/api';
               }
             },
         }];
+        // var game = this.props.passProps.movies
+        // const mapped = game.map(x => x.Question1.Answers.A);
+        const mapped = game.map(x => x.Question1.Question);
+
+        // console.log(createHtmlList(mapped));
+        console.log(mapped);
+        return (
+
+            <View style={styles.rowContainer}>
+              <View style={styles.wrapper}>
+
+                <Text style={styles.question}> "{mapped}" </Text>
 
 
+              </View>
+            </View>
 
-
-        // this.ds = new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2 });
-        this.state = {
-          movie : "",
-          error: '',
-          // dataSource: this.props.passProps.movies
-        }
-        // var game = this.state.dataSource
-        // var searchTerm = "I bet it feels huge in this hand."
-        // var filtered = game
-        //     .filter(x => x.Question = searchTerm)
-        //     .map(x => ` <li>${x.Question}</li>`)
-        // console.log(`<ul>${filtered}</ul>`);
-        // const game = this.props.passProps.movies
-        const mapped = game.map(x => x.Question1.Answers.A);
-
-        console.log(createHtmlList(mapped));
-        console.log(createHtmlList(['cat', 'dog']));
-
-        function createHtmlList(game) {
-          const listElements = game.map(x => `<li>${x}</li>`).join('');
-          return `<ul>${listElements}</ul>`
-        }
+        )
       }
-
-
-
-      // renderRow(rowData){
-      //   return (
-      //
-      //       <View style={styles.rowContainer}>
-      //         <View style={styles.wrapper}>
-      //
-      //           <Text style={styles.question}> {this.QuestionOne} </Text>
-      //
-      //           <TouchableHighlight
-      //             style={styles.answers}>
-      //               <Text> {rowData.Answers.A1} </Text>
-      //           </TouchableHighlight>
-      //
-      //           <TouchableHighlight
-      //             style={styles.answers}>
-      //               <Text> {rowData.Answers.B1} </Text>
-      //           </TouchableHighlight>
-      //
-      //           <TouchableHighlight
-      //             style={styles.answers}>
-      //               <Text> {rowData.Answers.C1} </Text>
-      //           </TouchableHighlight>
-      //
-      //           <TouchableHighlight
-      //             style={styles.answers}>
-      //               <Text> {rowData.Answers.D1} </Text>
-      //           </TouchableHighlight>
-      //         </View>
-      //       </View>
-      //
-      //   )
-      // }
-      render(rowData){
+      render(){
         return (
           <View style={styles.container}>
             <Image
@@ -115,8 +100,7 @@ import api from './utili/api';
             />
             <View style={styles.wrapper}>
 
-              <Text style={styles.question}> {this.QuestionOne} </Text>
-
+              {this.renderRow()}
 
             </View>
           </View>
