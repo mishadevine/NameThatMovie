@@ -46,12 +46,7 @@ class Questions extends Component {
         }
       }
     }];
-    // var game = this.props.passProps.movies
     const question1 = game.map(x => x.questionsANDanswers.Question1.Question);
-    const answers1 = game.map(x => x.questionsANDanswers.Question1.Answers.A);
-    const answers2 = game.map(x => x.questionsANDanswers.Question1.Answers.B);
-    const answers3 = game.map(x => x.questionsANDanswers.Question1.Answers.C);
-    const answers4 = game.map(x => x.questionsANDanswers.Question1.Answers.D);
 
     console.log(question1);
     return (
@@ -60,12 +55,6 @@ class Questions extends Component {
           <View style={styles.wrapper}>
             <Text style={styles.firstQues}>Question 1:</Text>
             <Text style={styles.question}> "{question1}" </Text>
-            <Text style={styles.answers}>A: "{answers1}" </Text>
-            <Text style={styles.answers}>B: "{answers2}" </Text>
-            <Text style={styles.answers}>C: "{answers3}" </Text>
-            <Text style={styles.answers}>D: "{answers4}" </Text>
-
-
           </View>
         </View>
 
@@ -76,7 +65,7 @@ class Questions extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.wrapper}>
-          <Text>Questions</Text>
+          {this.renderRow()}
         </View>
       </View>
     )
@@ -90,6 +79,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#1976d2',
+  },
+  wrapper: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  firstQues: {
+    fontSize: 30,
+    marginBottom: 15,
+  },
+  question: {
+    fontSize: 20,
+    marginBottom: 15,
   },
 });
 

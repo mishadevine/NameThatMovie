@@ -18,7 +18,6 @@ class AnswerList extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.wrapper}>
-          <Text>Answer List</Text>
           <Answers />
         </View>
       </View>
@@ -33,6 +32,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#1976d2',
+  },
+  wrapper: {
+    flex: 1,
+    marginTop: -100,
   },
 });
 

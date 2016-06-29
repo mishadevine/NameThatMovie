@@ -25,7 +25,6 @@ import {
       }
     }
 
-
     render(){
       return (
         <View style={styles.container}>
