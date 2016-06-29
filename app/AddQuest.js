@@ -99,20 +99,6 @@ class AddQuest extends Component {
     )
   }
 
-  // renderRow(rowData){
-  //   return (
-  //
-  //       <View style={styles.rowContainer}>
-  //         <Text> {rowData.Question} </Text>
-  //         <Text> {rowData.Answers.A1} </Text>
-  //         <Text> {rowData.Answers.B1} </Text>
-  //         <Text> {rowData.Answers.C1} </Text>
-  //         <Text> {rowData.Answers.D1} </Text>
-  //         <Text> {rowData.CorrectAnswer} </Text>
-  //       </View>
-  //
-  //   )
-  // }
   render(){
     return (
       <View style={styles.container}>
@@ -120,40 +106,28 @@ class AddQuest extends Component {
           <Text style={styles.header}>
             Add Questions
           </Text>
+          <TouchableHighlight
+            style={styles.backbtn}
+            onPress={this.backToProfile.bind(this)}
+            underlayColor="#88d4f5"
+            >
+              <Text style={styles.backProfile}>Back</Text>
+          </TouchableHighlight>
           <Text style={styles.expl}> Got a question you want to see in the game?</Text>
-          <Text style={styles.expl1}> Add it below!</Text>
+          <Text style={styles.expl1}> Submit it below!</Text>
         </View>
           {this.submitBar()}
       </View>
     )
   }
 
-}
+  backToProfile() {
+    this.props.navigator.push({
+      name: 'Profile',
+    })
+  }
 
-    // return (
-    //   <View style={styles.container}>
-    //     <View style={styles.wrapper}>
-    //       <Text style={styles.header}>
-    //         Your Favorite Movies
-    //       </Text>
-    //     </View>
-    //     <View style={styles.middle}>
-    //       <TextInput
-    //         style={styles.searchInput}
-    //         placeholder="Enter A Movie" />
-    //       <TouchableHighlight
-    //         style={styles.button}
-    //         underlayColor="#88d4f5"
-    //         >
-    //         <Text style={styles.buttonText}>Submit</Text>
-    //       </TouchableHighlight>
-    //     </View>
-    //   </View>
-    // );
-//   }
-//
-//
-// });
+}
 
 
 
@@ -218,6 +192,12 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
+  },
+  backProfile: {
+    marginTop: -30,
+    marginLeft: -150,
+    width: 35,
+    color: '#bbdefb',
   },
 });
 

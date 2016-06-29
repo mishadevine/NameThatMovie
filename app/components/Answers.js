@@ -55,10 +55,10 @@ class Answers extends Component {
 
         <View style={styles.rowContainer}>
           <View style={styles.wrapper}>
-            <Text style={styles.answers}>A: "{answers1}" </Text>
-            <Text style={styles.answers}>B: "{answers2}" </Text>
-            <Text style={styles.answers}>C: "{answers3}" </Text>
-            <Text style={styles.answers}>D: "{answers4}" </Text>
+            <Text style={styles.answers}>A: {answers1} </Text>
+            <Text style={styles.answers}>B: {answers2} </Text>
+            <Text style={styles.answers}>C: {answers3} </Text>
+            <Text style={styles.answers}>D: {answers4} </Text>
           </View>
         </View>
 

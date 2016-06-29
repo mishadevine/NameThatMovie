@@ -78,14 +78,17 @@ class FavMovies extends Component {
   render(){
     return (
       <View style={styles.container}>
-        <Image
-          style={styles.logo}
-          source={require('./img/NameThatMovie_logov5.png')}
-        />
         <View style={styles.wrapper}>
           <Text style={styles.header}>
             Your Favorite Movies
           </Text>
+          <TouchableHighlight
+            style={styles.backbtn}
+            onPress={this.backToProfile.bind(this)}
+            underlayColor="#88d4f5"
+            >
+              <Text style={styles.backProfile}>Back</Text>
+          </TouchableHighlight>
         </View>
         <View style={styles.middleContent}>
           <ListView
@@ -96,6 +99,12 @@ class FavMovies extends Component {
           {this.submitBar()}
       </View>
     )
+  }
+
+  backToProfile() {
+    this.props.navigator.push({
+      name: 'Profile',
+    })
   }
 
 }
@@ -158,6 +167,12 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
+  },
+  backProfile: {
+    marginTop: -20,
+    marginLeft: -150,
+    width: 35,
+    color: '#bbdefb',
   },
 });
 
