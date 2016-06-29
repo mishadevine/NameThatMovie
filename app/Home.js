@@ -23,7 +23,7 @@ var Home = React.createClass({
       this.props.navigator.push({
         name: 'Game',
         passProps: {
-          questions: res
+          questions: res,
         }
       })
     });
@@ -54,7 +54,7 @@ var Home = React.createClass({
         style={styles.logo}
         source={require('./img/NameThatMovie_logov5.png')}
       />
-      
+
       <TouchableHighlight
         style={styles.playNow}
         onPress={this.play}>

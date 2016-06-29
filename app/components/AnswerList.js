@@ -10,7 +10,7 @@ import {
   Navigator
 } from 'react-native';
 
-// import Answers from './components/Answers';
+import Answers from './Answers';
 
 class AnswerList extends Component {
 
@@ -19,7 +19,7 @@ class AnswerList extends Component {
       <View style={styles.container}>
         <View style={styles.wrapper}>
           <Text>Answer List</Text>
-
+          <Answers />
         </View>
       </View>
     )

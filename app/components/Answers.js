@@ -10,6 +10,8 @@ import {
   Navigator
 } from 'react-native';
 
+import Questions from './Questions';
+
 class Answers extends Component {
 
   render(){
@@ -17,6 +19,7 @@ class Answers extends Component {
       <View style={styles.container}>
         <View style={styles.wrapper}>
           <Text>The Answers</Text>
+          <Text>{this.renderRow()}</Text>
         </View>
       </View>
     )
