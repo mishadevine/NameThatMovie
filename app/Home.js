@@ -16,19 +16,6 @@ var lock = new Auth0Lock(credentials);
 
 var Home = React.createClass({
 
-  toDo: function() {
-    api.getMovies()
-    .then((res) => {
-      res = res || {};
-      this.props.navigator.push({
-        name: 'ToDoList',
-        passProps: {
-          movies: res
-        }
-      })
-    });
-  },
-
   play: function() {
     api.getQuestions()
     .then((res) => {
@@ -41,7 +28,7 @@ var Home = React.createClass({
       })
     });
   },
-// add api call
+
   login: function() {
     lock.show({
       closable: true,
@@ -67,11 +54,7 @@ var Home = React.createClass({
         style={styles.logo}
         source={require('./img/NameThatMovie_logov5.png')}
       />
-      <TouchableHighlight
-        style={styles.todoList}
-        onPress={this.toDo}>
-          <Text style={styles.todo}>To Do List</Text>
-      </TouchableHighlight>
+      
       <TouchableHighlight
         style={styles.playNow}
         onPress={this.play}>
