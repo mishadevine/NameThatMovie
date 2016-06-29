@@ -12,6 +12,7 @@ import {
 
   import api from './utili/api';
   import Questions from './components/Questions';
+  import AnswerList from './components/AnswerList';
 
   class Game extends Component {
     constructor(props){
@@ -81,6 +82,7 @@ import {
     //
     //   )
     // }
+    // {this.renderRow()}
 
     render(){
       return (
@@ -90,7 +92,8 @@ import {
             source={require('./img/NameThatMovie_logov5.png')}
           />
           <View style={styles.wrapper}>
-            {this.renderRow()}
+            <Questions />
+            <AnswerList />
           </View>
         </View>
       )

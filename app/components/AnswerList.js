@@ -10,12 +10,16 @@ import {
   Navigator
 } from 'react-native';
 
+// import Answers from './components/Answers';
+
 class AnswerList extends Component {
 
   render(){
     return (
       <View style={styles.container}>
         <View style={styles.wrapper}>
+          <Text>Answer List</Text>
+
         </View>
       </View>
     )

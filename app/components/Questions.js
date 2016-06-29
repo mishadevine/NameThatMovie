@@ -16,6 +16,7 @@ class Questions extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.wrapper}>
+          <Text>Questions</Text>
         </View>
       </View>
     )
