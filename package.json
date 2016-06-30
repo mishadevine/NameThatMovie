@@ -1,0 +1,26 @@
+{
+  "name": "namethatmovie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mishadevine/NameThatMovie.git"
+  },
+  "author": "mdevine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mishadevine/NameThatMovie/issues"
+  },
+  "homepage": "https://github.com/mishadevine/NameThatMovie#readme",
+  "devDependencies": {
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-nodemon": "^2.1.0"
+  },
+  "dependencies": {
+    "wiredep": "^4.0.0"
+  }
+}
