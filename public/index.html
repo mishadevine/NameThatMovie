@@ -1,0 +1,39 @@
+<!Doctype html>
+<html>
+  <head>
+
+    <title>Name That Movie!</title>
+
+    <!-- Firebase setup -->
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBzcFEv4kPb2y37KA3Q5FeW3pluhIIOdjU",
+        authDomain: "name-that-movie.firebaseapp.com",
+        databaseURL: "https://name-that-movie.firebaseio.com",
+        storageBucket: "name-that-movie.appspot.com",
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <!-- <script src="bower/angular/angular.min.js"></script> -->
+
+    <!-- Firebase -->
+    <script type="text/javascript" src="assets/js/firebase.js"></script>
+
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.0.0/angularfire.min.js"></script>
+    <script type="text/javascript" src="bower/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="bower/angular-messages/angular-messages.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="bower/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+  </head>
+  <body ng-app="NameThatMovie" ng-controller="MasterCtrl">
+    <div ng-view></div>
+  </body>
+</html>
