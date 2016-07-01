@@ -1,0 +1,17 @@
+body {
+  background-color: #1976d2;
+}
+
+/************************* Home Page **************************/
+form {
+  width: 50%;
+}
+.login {
+  margin-bottom: 100px;
+}
+.theInputs {
+  width: 50%;
+}
+.random {
+  margin-bottom: 30px;
+}

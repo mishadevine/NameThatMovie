@@ -3,8 +3,17 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
     $routeProvider.when("/", {
       controller: "MasterCtrl",
       templateUrl: "parts/home.html",
+    }).when("/game", {
+      controller: "MasterCtrl",
+      templateUrl: "parts/game.html",
+    }).when("/login", {
+      controller: "MasterCtrl",
+      templateUrl: "parts/login.html",
+    }).when("/signup", {
+      controller: "MasterCtrl",
+      templateUrl: "parts/signup.html",
     }).when("/profile", {
-      controller: "ProfileCtrl",
+      controller: "MasterCtrl",
       templateUrl: "parts/profile.html",
     })
     .otherwise("/");
@@ -15,17 +24,24 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
     }
   ])
   .controller("MasterCtrl", function($scope,Auth,$firebaseAuth,$firebaseObject,$firebaseArray,$location) {
-    var ref = new Firebase("https://name-that-movie.firebaseio.com/");
-    $scope.authObj = $firebaseAuth(ref);
-    // var auth = $firebaseAuth();
+    var auth = $firebaseAuth();
 
+    // Redirect to the login page when clicked
+    $scope.loginPage = function() {
+      $location.path("/login");
+    }
+
+    // Redirect to the game page when clicked
+    $scope.game = function() {
+      $location.path("/game");
+    }
 
     // Creating a user
     $scope.createUser = function() {
       $scope.message = null;
       $scope.error = null;
 
-      $scope.authObj.$createUserWithEmailAndPassword($scope.email, $scope.password)
+      auth.$createUserWithEmailAndPassword($scope.email, $scope.password)
         .then(function(firebaseUser) {
         $scope.message = "User created with uid: " + firebaseUser.uid;
       }).catch(function(error) {
@@ -35,7 +51,7 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
           $location.path("/profile");
 
         //Adding user to database
-          var ref = firebase.database("https://name-that-movie.firebaseio.com/users/").ref();
+          var ref = firebase.database().ref();
           $scope.data = $firebaseObject(ref)
           $scope.data.userInformation = { firstname: $scope.firstname, lastname: $scope.lastname, email: $scope.email, password: $scope.password };
           $scope.data.$save().then(function(ref) {
@@ -50,7 +66,7 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
 
     // Logging in through Facebook
     $scope.fbLogin = function() {
-      $scope.authObj.$signInWithPopup("facebook").then(function(firebaseUser) {
+      auth.$signInWithPopup("facebook").then(function(firebaseUser) {
         console.log("Signed in as:", firebaseUser.uid);
         $location.path("/profile");
       }).catch(function(error) {
@@ -60,10 +76,11 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
 
     // Logging in with email and password
     $scope.login = function() {
-      $scope.authObj.$signInWithEmailAndPassword($scope.login.email, $scope.login.password).then(function(firebaseUser) {
+      auth.$signInWithEmailAndPassword($scope.login.email, $scope.login.password).then(function(firebaseUser) {
         console.log("Signed in as:", firebaseUser.uid);
         $location.path("/profile");
-      }).catch(function(error) {
+      })
+      .catch(function(error) {
         console.error("Authentication failed:", error);
       });
     }
@@ -76,5 +93,6 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
     $scope.validatePasswordLength = function() {
       return loginForm.password.$touched || signupForm.password.$touched
     }
+
 
   });

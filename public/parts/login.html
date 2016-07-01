@@ -1,0 +1,27 @@
+<div>
+  <h1>Login</h1>
+  <form class="form-group login" name="loginForm" novalidate>
+    <label for="email">Email</label><br>
+    <input type="email" name="email" ng-model="login.email" class="form-control" placeholder="johndoe@email.com" required/>
+    <div ng-messages="loginForm.email.$error" ng-show="loginForm.email.$touched">
+      <p ng-message="required">Please enter an e-mail address.</p>
+    </div>
+    <div ng-messages="loginForm.email.$error" ng-show="validateEmail">
+      <p ng-message="email">Please enter a valid e-mail.</p>
+    </div>
+
+    <label for="password">Password</label><br>
+    <input class="form-control" type="password" name="password" ng-model="login.password" ng-minlength="8" required/>
+    <div ng-messages="loginForm.password.$error" ng-show="loginForm.password.$touched">
+      <p ng-message="required">Please enter your password.</p>
+    </div>
+    <div ng-messages="loginForm.password.$error" ng-show="validatePasswordLength">
+      <p ng-message="minlength">At Least 8 characters</p>
+    </div>
+    <br />
+
+
+    <button ng-click="login()" id="login" type="submit" name="submit" class="form-control" ng-disabled="loginForm.$invalid">Login</button>
+    <button ng-click="fbLogin()" id="fbButton" class="form-control">Login With Facebook</button>
+  </form>
+</div>
