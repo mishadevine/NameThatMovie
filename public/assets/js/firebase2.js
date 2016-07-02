@@ -5,7 +5,7 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
       controller: "MasterCtrl",
     }).when("/game", {
       templateUrl: "parts/game.html",
-      controller: "MasterCtrl",
+      controller: "GameCtrl",
     }).when("/login", {
       templateUrl: "parts/login.html",
       controller: "MasterCtrl",
