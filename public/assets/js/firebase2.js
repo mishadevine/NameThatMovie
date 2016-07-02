@@ -1,46 +1,59 @@
 angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
   .config(["$routeProvider", function($routeProvider) {
     $routeProvider.when("/", {
-      controller: "MasterCtrl",
       templateUrl: "parts/home.html",
+      controller: "MasterCtrl",
     }).when("/game", {
-      controller: "MasterCtrl",
       templateUrl: "parts/game.html",
+      controller: "MasterCtrl",
     }).when("/login", {
-      controller: "MasterCtrl",
       templateUrl: "parts/login.html",
+      controller: "MasterCtrl",
     }).when("/signup", {
-      controller: "MasterCtrl",
       templateUrl: "parts/signup.html",
-    }).when("/profile", {
       controller: "MasterCtrl",
+    }).when("/profile", {
       templateUrl: "parts/profile.html",
+      controller: "MasterCtrl",
+    }).when("/favMovies", {
+      templateUrl: "parts/favMovies.html",
+      controller: "FavMoviesCtrl",
     })
     .otherwise("/");
   }])
-  // .factory("Auth",["$firebaseAuth",
-  //   function($firebaseAuth) {
-  //     return $firebaseAuth();
-  //   }
-  // ])
   .controller("MasterCtrl", function($scope,$firebaseAuth,$firebaseObject,$firebaseArray,$location) {
-    // var auth = $firebaseAuth();
+
     var ref = new Firebase("https://namethatmovie3.firebaseio.com/");
     $scope.authObj = $firebaseAuth(ref);
 
-    // Redirect to the game page when clicked
+    // Redirect to the game page
     $scope.signupPage = function() {
       $location.path("/signup");
     }
 
-    // Redirect to the login page when clicked
+    // Redirect to the login page
     $scope.loginPage = function() {
       $location.path("/login");
     }
 
-    // Redirect to the game page when clicked
+    // Redirect to the game page
     $scope.game = function() {
       $location.path("/game");
+    }
+
+    // Redirect to the recommendations page
+    $scope.recPage = function() {
+      $location.path("/recMovies");
+    }
+
+    // Redirect to the favorite movies page
+    $scope.favMoviesPage = function() {
+      $location.path("/favMovies");
+    }
+
+    // Redirect to the page that users can add questions
+    $scope.addQuestPage = function() {
+      $location.path("/addQuest");
     }
 
     // Creating a user

@@ -1,0 +1,39 @@
+<div class="left-div">
+  <h1>Add New Movie</h1>
+  <form class="form-group" ng-submit="addMovie()">
+    <label for="new">New Movie</label><br>
+    <input type="text" ng-model="newMovie.name" name="new" class="form-control" placeholder="name of movie"/>
+      <button id="addNew" class="form-control" type="submit" name="add">Add New Movie</button>
+  </form>
+
+  <form class="form-group" ng-submit="updateMovie()">
+    <button id="update" class="form-control" type="submit" name="submit">Update Movie</button>
+  </form>
+
+</div>
+<div class="logout">
+  <a href="/#/"><button class="form-control" name="logout" ng-click="authObj.$unauth()">Logout</button></a>
+</div>
+
+<div class="middle-div">
+
+  <p class="list">
+    <ul>
+        <li ng-repeat="movie in movies">
+            {{ movie.name }}
+        </li>
+    </ul>
+  </p>
+</div>
+
+
+<div class="right-div">
+  <h1>Edit Your <br>List</h1>
+  <ul>
+      <li ng-repeat="movie in movies">
+          {{ movie.name }} <br>
+          <button ng-click="editMovie(movie)">Edit</button>
+          <button ng-click="removeMovie(movie)">Delete</button>
+      </li>
+  </ul>
+</div>
