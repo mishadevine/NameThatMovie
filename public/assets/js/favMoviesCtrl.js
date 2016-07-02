@@ -5,21 +5,21 @@ angular.module("NameThatMovie")
     var ref = new Firebase("https://namethatmovie3.firebaseio.com/");
 
     $scope.authObj = $firebaseAuth(ref);
-    var favMovies;
+    var movies;
 
     $scope.authObj.$onAuth(function(authData) {
     if (authData) {
-      var URL = "https://namethatmovie3.firebaseio.com/users/" + authData.uid + "/favmovies";
+      var URL = "https://namethatmovie3.firebaseio.com/users/" + authData.uid + "/movies";
       $scope.userID = authData.uid;
       var listRef = new Firebase(URL);
-      favMovies = $firebaseArray(listRef);
-      $scope.favMovies = favMovies;
+      movies = $firebaseArray(listRef);
+      $scope.movies = movies;
       } else {
       console.log("Logged out");
       }
     });
 
-    $scope.favMovies = favMovies;
+    $scope.movies = movies;
 
     // Add to database
     $scope.addMovie = function() {
@@ -36,7 +36,7 @@ angular.module("NameThatMovie")
       });
     }
 
-    // Edit movie
+    // Edit item
     $scope.editMovie = function(movie) {
       $scope.newMovie = movie;
       console.log("editing movie")
