@@ -19,7 +19,7 @@ angular.module("NameThatMovie")
       }
     });
 
-    $scope.favMovies = favMovie;
+    $scope.favMovies = favMovies;
 
     // Add to database
     $scope.addMovie = function() {
