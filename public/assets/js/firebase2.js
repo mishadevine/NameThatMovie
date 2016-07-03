@@ -18,6 +18,9 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
     }).when("/favMovies", {
       templateUrl: "parts/favMovies.html",
       controller: "FavMoviesCtrl",
+    }).when("/addQuest", {
+      templateUrl: "parts/addQuest.html",
+      controller: "AddQuestCtrl",
     })
     .otherwise("/");
   }])

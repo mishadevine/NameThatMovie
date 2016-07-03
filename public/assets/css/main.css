@@ -3,9 +3,6 @@ body {
 }
 
 /************************* Home Page **************************/
-form {
-  width: 50%;
-}
 .login {
   margin-bottom: 100px;
 }
@@ -20,10 +17,16 @@ form {
 .fbBtn {
   background-color: #4267b2;
   color: #fff;
-  border-color: black;
+  border-color: #4267b2;
 }
 .fbBtn:hover {
   background-color: #405d98;
+  border-color: #4267b2;
+}
+
+/************************* Login Page **************************/
+.signUp {
+  margin-bottom: 20px;
 }
 
 /************************* Favorite Movies Page **************************/
@@ -46,24 +49,7 @@ form {
 .left-div form {
   margin-left: 30px;
 }
-#login {
-  background-color: #FFC106;
-  border-color: #FFC106;
-  border-radius: 5px;
-  width: 82%;
-  height: 30px;
-  margin-bottom: 20px;
-  font-size: 13px;
-}
-#fbButton {
-  color: rgb(255,255,255);
-  background-color: rgb(59,89,152);
-  border-color: rgb(59,89,152);
-  border-radius: 5px;
-  width: 82%;
-  height: 30px;
-  font-size: 13px;
-}
+
 #addNew {
   background-color: rgb(255, 217, 102);
   border-color: rgb(255, 217, 102);
@@ -82,21 +68,6 @@ form {
   margin-bottom: 20px;
   font-size: 13px;
 }
-#share {
-  background-color: #FFC106;
-  border-color: #FFC106;
-  border-radius: 5px;
-  width: 82%;
-  height: 30px;
-  margin-bottom: 20px;
-  font-size: 13px;
-}
-.shareIntro {
-  font-size: 1.2em;
-  position: absolute;
-  margin-top: -600px;
-  margin-left: 440px;
-}
 
 /* middle */
 .middle-div ul li {
@@ -104,46 +75,6 @@ form {
   margin-bottom: 10px;
   font-size: 1.5em;
   list-style-type: none;
-}
-#color {
-  color: #FFC106;
-}
-.middle-div form {
-    width: 86%;
-    padding: 15px;
-    margin: auto;
-    margin-left: 100px;
-    position: relative;
-}
-label {
-    margin-left: 3px;
-}
-input{
-    border-radius: 5px;
-    width: 200px;
-    height: 20px;
-    margin-bottom: 20px;
-    margin-left: 3px;
-
-
-}
-#signUp {
-    background-color: #FFC106;
-    border-color: #FFC106;
-    border-radius: 5px;
-    width: 205px;
-    height: 30px;
-    margin-bottom: 20px;
-    font-size: 13px;
-}
-#signupfbButton {
-  color: rgb(255,255,255);
-  background-color: rgb(59,89,152);
-  border-color: rgb(59,89,152);
-  border-radius: 5px;
-  width: 205px;
-  height: 30px;
-  font-size: 13px;
 }
 
 /* right */
@@ -210,6 +141,12 @@ input{
   }
 
   /***** signup page *****/
+  .wrapper form {
+    width: 70%;
+    margin: auto;
+    margin-top: 100px;
+  }
+
 
   /***** game page *****/
   .left-div {

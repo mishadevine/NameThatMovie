@@ -1,0 +1,24 @@
+<div class="left-div">
+  <h1>Add A New Question To The Game</h1>
+  <form class="form-group" ng-submit="addNewQuests()">
+    <label for="new">New Question</label><br>
+    <input type="text" ng-model="newQuest.quote" name="new" class="form-control" placeholder="the quote"/>
+    <input type="text" ng-model="newQuest.optA" name="new" class="form-control" placeholder="option a"/>
+    <input type="text" ng-model="newQuest.optB" name="new" class="form-control" placeholder="option b"/>
+    <input type="text" ng-model="newQuest.optC" name="new" class="form-control" placeholder="option c"/>
+    <input type="text" ng-model="newQuest.optD" name="new" class="form-control" placeholder="option d"/>
+    <input type="text" ng-model="newQuest.answer" name="new" class="form-control" placeholder="correct answer"/>
+      <button id="addNew" class="form-control" type="submit" name="add">Add New Question</button>
+  </form>
+</div>
+
+<div class="middle-div">
+
+  <p class="list">
+    <ul>
+        <li ng-repeat="movie in movies">
+            {{ movie.name }} </strong><br>
+        </li>
+    </ul>
+  </p>
+</div>

@@ -1,4 +1,4 @@
-<div>
+<div class="wrapper">
   <form name="signupForm" class="form-group signup" ng-submit="createUser()" novalidate>
     <label for="fName">First Name</label><br>
     <input type="input" name="fName" ng-model="firstname" class="form-control" required/>
@@ -36,7 +36,7 @@
       <p ng-message="minlength">At Least 8 characters</p>
     </div><br />
 
-    <button id="signUp" type="submit" name="submit" class="form-control" ng-disabled="signupForm.$invalid">Sign Up</button>
-    <button ng-click="fbLogin()" id="signupfbButton" class="form-control">Sign up With Facebook</button>
+    <button type="submit" name="submit" class="form-control signUp" ng-disabled="signupForm.$invalid">Sign Up</button>
+    <button ng-click="fbLogin()" class="form-control fbBtn">Sign up With Facebook</button>
   </form>
 </div>
