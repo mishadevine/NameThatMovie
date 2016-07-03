@@ -12,13 +12,6 @@
   </form>
 </div>
 
-<div class="middle-div">
-
-  <p class="list">
-    <ul>
-        <li ng-repeat="movie in movies">
-            {{ movie.name }} </strong><br>
-        </li>
-    </ul>
-  </p>
+<div class="logout">
+  <a href="/#/"><button class="form-control" name="logout" ng-click="authObj.$unauth()">Logout</button></a>
 </div>
