@@ -15,3 +15,36 @@ form {
 .random {
   margin-bottom: 30px;
 }
+
+/************************* Home Page **************************/
+
+/************************* Responsive **************************/
+@media (max-width: 400px) {
+  /***** home page *****/
+
+  /***** login page *****/
+  .logForm {
+    width: 50%;
+    margin: auto;
+    margin-top: 100px;
+    padding: 10px;
+  }
+  .login {
+    width: 100%;
+  }
+  .login button.loginBtn {
+    margin-bottom: 20px
+  }
+
+  /***** signup page *****/
+
+  /***** game page *****/
+  .theInputs {
+    margin: auto;
+    margin-top: 200px;
+  }
+  .left-div {
+    width: 70%;
+    margin: auto;
+  }
+}
