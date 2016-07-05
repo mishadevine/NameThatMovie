@@ -1,6 +1,12 @@
-<div class="theInputs">
-  <input ng-click="game()" type="button" class="form-control btn btn-primary random" value="Play">
-  <input ng-click="recPage()" type="button" class="form-control btn btn-primary random" value="Recommendations">
-  <input ng-click="favMoviesPage()" type="button" class="form-control btn btn-primary random" value="Favorite Movies">
-  <input ng-click="addQuestPage()" type="button" class="form-control btn btn-primary random" value="Add Questions To The Game">
+<div class="wrapper">
+  <div class="logoProf">
+    <img src="assets/img/NameThatMovie_logov5.png">
+  </div>
+  <div class="theInputs">
+    <input ng-click="game()" type="button" class="form-control btn btn-primary random" value="Play">
+    <input ng-click="recPage()" type="button" class="form-control btn btn-primary random" value="Recommendations">
+    <input ng-click="favMoviesPage()" type="button" class="form-control btn btn-primary random" value="Favorite Movies">
+    <input ng-click="addQuestPage()" type="button" class="form-control btn btn-primary random" value="Add Questions To The Game">
+    <a href="/#/"><button class="form-control btn btn-primary" name="logout" ng-click="authObj.$unauth()">Logout</button></a>
+  </div>
 </div>
