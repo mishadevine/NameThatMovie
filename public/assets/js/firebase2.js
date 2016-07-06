@@ -15,9 +15,12 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
     }).when("/profile", {
       templateUrl: "parts/profile.html",
       controller: "MasterCtrl",
+    }).when("/recMovies", {
+      templateUrl: "parts/recMovies.html",
+      controller: "MasterCtrl",
     }).when("/favMovies", {
       templateUrl: "parts/favMovies.html",
-      controller: "FavMoviesCtrl",
+      controller: "recMoviesCtrl",
     }).when("/addQuest", {
       templateUrl: "parts/addQuest.html",
       controller: "AddQuestCtrl",
