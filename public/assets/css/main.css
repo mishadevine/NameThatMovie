@@ -30,24 +30,10 @@ body {
 }
 
 /************************* Favorite Movies Page **************************/
-/* left */
-.left-div {
-    width: 245px;
-    height: 500px;
-    margin-top: 200px;
-    border-radius: 5px;
-    margin-left: 10px;
-}
-.left-div h1 {
-  text-align: center;
-  padding: 40px;
-  margin-bottom: -10px;
-}
-.left-div .form-control {
-  width: 80%;
-}
-.left-div form {
-  margin-left: 30px;
+nav img {
+  width: 40px;
+  height: 40px;
+  display: none;
 }
 
 /*#addNew {
@@ -69,92 +55,34 @@ body {
   font-size: 13px;
 }*/
 
-/* middle */
-.middle-div ul li {
-  margin-left: 38%;
-  margin-bottom: 10px;
-  font-size: 1.5em;
-  list-style-type: none;
-}
-
-/* right */
-.right-div {
-    width: 245px;
-    height: 500px;
-    float: right;
-    margin-top: -664px;
-    margin-right: 8px;
-    border-radius: 5px;
-}
-.right-div h1 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-.right-div ul {
-    list-style: none;
-    height: 373px;
-    overflow: auto;
-}
-.right-div ul li {
-  margin-bottom: 20px;
-  margin-left: 30px;
-}
-.right-div ul li:before {
-    color: #FFC106;
-    content: '☆ ';
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-
 /************************* Responsive **************************/
 @media (max-width: 400px) {
   /***** menu icon *****/
 
   header {
-
 		position: absolute;
-
-	}
-
-	#menu-icon {
-
-		display:inline-block;
-
-
+    margin-left: 300px;
+    margin-top: -50px;
 	}
   nav img {
-    width: 40px;
-  	height: 40px;
+    display: inline-block;
   }
-
 	nav ul, nav:active ul {
-
 		display: none;
-		/*position: absolute;*/
 		padding: 20px;
 		background: #fff;
 		border: 5px solid #444;
-		right: 20px;
-		top: 60px;
-		width: 50%;
-		/*border-radius: 4px 0 4px 4px;*/
-
+    margin-left: -70px;
 	}
-
 	nav li {
-
 		text-align: center;
 		width: 100%;
 		padding: 10px 0;
 		margin: 0;
-
+    list-style-type: none;
 	}
-
 	nav:hover ul {
-
 		display: block;
-
 	}
 
   /***** home page *****/
