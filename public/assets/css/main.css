@@ -109,6 +109,54 @@ body {
 
 /************************* Responsive **************************/
 @media (max-width: 400px) {
+  /***** menu icon *****/
+
+  header {
+
+		position: absolute;
+
+	}
+
+	#menu-icon {
+
+		display:inline-block;
+
+
+	}
+  nav img {
+    width: 40px;
+  	height: 40px;
+  }
+
+	nav ul, nav:active ul {
+
+		display: none;
+		/*position: absolute;*/
+		padding: 20px;
+		background: #fff;
+		border: 5px solid #444;
+		right: 20px;
+		top: 60px;
+		width: 50%;
+		/*border-radius: 4px 0 4px 4px;*/
+
+	}
+
+	nav li {
+
+		text-align: center;
+		width: 100%;
+		padding: 10px 0;
+		margin: 0;
+
+	}
+
+	nav:hover ul {
+
+		display: block;
+
+	}
+
   /***** home page *****/
   .logo img {
     width: 55%;
@@ -162,6 +210,9 @@ body {
   }
 
   /***** favorite movies page *****/
+  .logoFavMov img {
+    width: 30%;
+  }
   .favMov {
     width: 70%;
     margin: auto;
@@ -189,7 +240,7 @@ body {
     font-size: 13px;
     float: right;
   }
-  ul li {
+  .movieList ul li {
     list-style-type: none;
     font-size: 15px;
   }

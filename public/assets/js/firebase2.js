@@ -17,10 +17,10 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
       controller: "MasterCtrl",
     }).when("/recMovies", {
       templateUrl: "parts/recMovies.html",
-      controller: "MasterCtrl",
+      controller: "recMoviesCtrl",
     }).when("/favMovies", {
       templateUrl: "parts/favMovies.html",
-      controller: "recMoviesCtrl",
+      controller: "FavMoviesCtrl",
     }).when("/addQuest", {
       templateUrl: "parts/addQuest.html",
       controller: "AddQuestCtrl",
