@@ -3,11 +3,13 @@ angular.module("NameThatMovie")
 
     //Connect to Firebase
     var ref = new Firebase("https://namethatmovie3.firebaseio.com/");
+    $firebaseObject(ref)
+    var questions;
 
-    var URL = "https://namethatmovie3.firebaseio.com/questionsANDanswers/Questions"
+    var URL = "https://namethatmovie3.firebaseio.com/questionsANDanswers/Questions/Question0"
     var listRef = new Firebase(URL);
-    theGame = $firebaseArray(listRef);
-    $scope.game = theGame;
+    questions = $firebaseArray(listRef);
+    $scope.questions = questions;
 
 
     listRef.on("value", function(snapshot) {
