@@ -105,14 +105,27 @@ nav img {
     width: 100%;
   }
   .login button.loginBtn {
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    color: #1976d2;
+    background-color: rgb(187, 222, 251);
+    border-color: rgb(187, 222, 251);
+    border-radius: 5px;
   }
 
   /***** signup page *****/
+  .wrapper {
+    margin-top: 100px;
+  }
   .wrapper form {
     width: 70%;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 40px;
+  }
+  .signup button.signUp {
+    color: #1976d2;
+    background-color: rgb(187, 222, 251);
+    border-color: rgb(187, 222, 251);
+    border-radius: 5px;
   }
 
 
