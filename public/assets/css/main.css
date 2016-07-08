@@ -115,6 +115,11 @@ nav img {
     margin-top: 30px;
   }
 
+  /***** recommendation movies page *****/
+  .recommend h1 {
+    margin-top: 40px;
+  }
+
   /***** favorite movies page *****/
   .favmovies h1 {
     margin-top: 40px;
@@ -174,6 +179,12 @@ nav img {
   .movieList li {
     margin-right: 40px;
     height: 40px;
+  }
+
+  /***** add questions page *****/
+  .addQuestions {
+    width: 70%;
+    margin: auto;
   }
 
 } /* end media query 400px max */

@@ -1,4 +1,21 @@
-<div class="left-div">
+<div class="logoFavMov">
+  <img src="assets/img/NameThatMovie_logov6.png">
+</div>
+
+<header>
+  <nav>
+    <a href="#" id="menu-icon"><img src="assets/img/mobile-menu-icon-lightblue.png"></a>
+    <ul>
+      <li><a href="/#/game">Game</a></li>
+      <li><a href="/#/recMovies" class="current">Recommendations</a></li>
+      <li><a href="/#/favMovies">Favorite Movies</a></li>
+      <li><a href="/#/addQuest">Add Questions</a></li>
+      <li ng-click="authObj.$unauth()"><a href="/#/">Logout</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="addQuestions">
   <h1>Add A New Question To The Game</h1>
   <form class="form-group" ng-submit="addNewQuests()">
     <label for="new">New Question</label><br>
@@ -10,8 +27,4 @@
     <input type="text" ng-model="newQuest.answer" name="new" class="form-control" placeholder="correct answer"/>
       <button id="addNew" class="form-control" type="submit" name="add">Add New Question</button>
   </form>
-</div>
-
-<div class="logout">
-  <a href="/#/"><button class="form-control" name="logout" ng-click="authObj.$unauth()">Logout</button></a>
 </div>
