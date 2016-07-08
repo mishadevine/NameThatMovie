@@ -113,10 +113,10 @@ nav img {
   }
 
   /***** signup page *****/
-  .wrapper {
+  .container {
     margin-top: 100px;
   }
-  .wrapper form {
+  .container form {
     width: 70%;
     margin: auto;
     margin-top: 40px;
