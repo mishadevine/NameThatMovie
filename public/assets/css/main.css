@@ -1,6 +1,10 @@
 body {
   background-color: #1976d2;
 }
+h1 {
+  font-family: 'DK Lemon Yellow Sun';
+  text-align: center;
+}
 
 /************************* Home Page **************************/
 .login {
@@ -35,25 +39,6 @@ nav img {
   height: 40px;
   display: none;
 }
-
-/*#addNew {
-  background-color: rgb(255, 217, 102);
-  border-color: rgb(255, 217, 102);
-  border-radius: 5px;
-  width: 82%;
-  height: 30px;
-  margin-bottom: 20px;
-  font-size: 13px;
-}
-#update {
-  background-color: rgb(255, 217, 102);
-  border-color: rgb(255, 217, 102);
-  border-radius: 5px;
-  width: 82%;
-  height: 30px;
-  margin-bottom: 20px;
-  font-size: 13px;
-}*/
 
 /************************* Responsive **************************/
 @media (max-width: 400px) {
@@ -96,11 +81,6 @@ nav img {
     margin-top: 100px;
     width: 60%;
   }
-  /*.random {
-    padding-top: 20px;
-    padding-bottom: 20px;
-
-  }*/
 
   /***** login page *****/
   .logForm {
@@ -138,13 +118,17 @@ nav img {
   }
 
   /***** favorite movies page *****/
+
   .logoFavMov img {
     width: 30%;
   }
   .favMov {
-    width: 70%;
+    width: 90%;
     margin: auto;
     margin-bottom: 20px;
+  }
+  .addMovie {
+    margin-top: 30px;
   }
   .addNew {
     background-color: rgb(255, 217, 102);
