@@ -87,6 +87,12 @@ nav img {
     margin-top: 100px;
     width: 60%;
   }
+  .random {
+    color: #1976d2;
+    background-color: rgb(187, 222, 251);
+    border-color: rgb(187, 222, 251);
+    border-radius: 5px;
+  }
 
   /***** login page *****/
   .logForm {
