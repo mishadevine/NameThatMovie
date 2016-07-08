@@ -18,13 +18,12 @@
 <div class="addQuestions">
   <h1>Add A New Question To The Game</h1>
   <form class="form-group" ng-submit="addNewQuests()">
-    <label for="new">New Question</label><br>
-    <input type="text" ng-model="newQuest.quote" name="new" class="form-control" placeholder="the quote"/>
-    <input type="text" ng-model="newQuest.optA" name="new" class="form-control" placeholder="option a"/>
-    <input type="text" ng-model="newQuest.optB" name="new" class="form-control" placeholder="option b"/>
-    <input type="text" ng-model="newQuest.optC" name="new" class="form-control" placeholder="option c"/>
-    <input type="text" ng-model="newQuest.optD" name="new" class="form-control" placeholder="option d"/>
-    <input type="text" ng-model="newQuest.answer" name="new" class="form-control" placeholder="correct answer"/>
-      <button id="addNew" class="form-control" type="submit" name="add">Add New Question</button>
+    <input type="text" ng-model="newQuest.quote" name="new" class="form-control" placeholder="the quote" required/>
+    <input type="text" ng-model="newQuest.optA" name="new" class="form-control" placeholder="option a" required/>
+    <input type="text" ng-model="newQuest.optB" name="new" class="form-control" placeholder="option b" required/>
+    <input type="text" ng-model="newQuest.optC" name="new" class="form-control" placeholder="option c" required/>
+    <input type="text" ng-model="newQuest.optD" name="new" class="form-control" placeholder="option d" required/>
+    <input type="text" ng-model="newQuest.answer" name="new" class="form-control" placeholder="correct answer" required/>
+      <button class="form-control addNewQuest" type="submit" name="add">Add New Question</button>
   </form>
 </div>

@@ -200,5 +200,14 @@ nav img {
     width: 70%;
     margin: auto;
   }
+  .addQuestions input {
+    margin-bottom: 20px;
+  }
+  .addNewQuest {
+    color: #1976d2;
+    background-color: rgb(187, 222, 251);
+    border-color: rgb(187, 222, 251);
+    border-radius: 5px;
+  }
 
 } /* end media query 400px max */
