@@ -130,9 +130,10 @@ nav img {
 
 
   /***** game page *****/
-  .left-div {
+  .game-div {
     width: 70%;
     margin: auto;
+    margin-top: 50px;
   }
 
   /***** profile page *****/
