@@ -1,7 +1,7 @@
 angular.module("NameThatMovie")
   .controller("RecMoviesCtrl", function($scope,$firebaseArray,$firebaseAuth){
 
-    Connect to Firebase
+    //Connect to Firebase
     var ref = new Firebase("https://namethatmovie3.firebaseio.com/");
 
     $scope.authObj = $firebaseAuth(ref);
