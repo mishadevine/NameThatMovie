@@ -21,6 +21,7 @@ angular.module("NameThatMovie")
 
     $scope.movies = movies;
 
+
     // Remove from database
     $scope.removeMovie = function(movie) {
       $scope.movies.$remove(movie).then(function(ref) {
