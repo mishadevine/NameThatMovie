@@ -135,6 +135,9 @@ nav img {
     margin: auto;
     margin-top: 50px;
   }
+  .questOne {
+    background-color: red;
+  }
 
   /***** profile page *****/
   .logoProf img {

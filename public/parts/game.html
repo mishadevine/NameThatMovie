@@ -16,14 +16,15 @@
   <h1>Add New Movie</h1>
   <p>Question 1</p></br>
 
-  <div>
-    <p>
-      <ul>
-          <li ng-repeat="question in questions">
-              {{ question.Question }}
-          </li>
-      </ul>
-    </p>
+  <div class="questOne" ng-repeat="question in questions">
+    {{ question.Question0.Question }}
+  </div>
+
+  <div class="questTwo" ng-repeat="question in questions">
+    {{ question.Answer0.A }}<br>
+    {{ question.Answer0.B }}</br>
+    {{ question.Answer0.C }}</br>
+    {{ question.Answer0.D }}
   </div>
 
 </div>
