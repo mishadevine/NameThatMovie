@@ -4,7 +4,7 @@
 
 <header>
   <nav>
-    <a href="#" id="menu-icon"><img src="assets/img/mobile-menu-icon-lightblue.png"></a>
+    <a href="" id="menu-icon"><img src="assets/img/mobile-menu-icon-lightblue.png"></a>
     <ul>
       <li><a href="/#/signup">Sign Up</a></li>
       <li><a href="/#/login">Login</a></li>
@@ -13,18 +13,18 @@
 </header>
 
 <div class="game-div">
-  <h1>Add New Movie</h1>
-  <p>Question 1</p></br>
+  <h1>Question 1</h1>
 
   <div class="questOne" ng-repeat="question in questions">
-    {{ question.Question0.Question }}
+    {{ question.Action0.Question }}
   </div>
+  <!-- | limitTo : 1 : begin -->
 
-  <div class="questTwo" ng-repeat="question in questions">
-    {{ question.Answer0.A }}<br>
-    {{ question.Answer0.B }}</br>
-    {{ question.Answer0.C }}</br>
-    {{ question.Answer0.D }}
+  <div name="answers" class="questOneAnswers" ng-repeat="answer in questions | orderBy: reverse">
+    <input type="button" name="wrong" class="form-control btn btn-primary" ng-click="wrong(wrong)" value="{{ answer.Kids0.KidsAns1.A }}">
+    <input type="button" class="form-control btn btn-primary" ng-click="wrong(wrong)" value="{{ answer.Kids0.KidsAns1.B }}">
+    <input type="button" class="form-control btn btn-primary" ng-click="correct(correct)" value="{{ answer.Kids0.KidsAns1.C }}">
+    <input type="button" class="form-control btn btn-primary" ng-click="wrong(wrong)" value="{{ answer.Kids0.KidsAns1.D }}">
   </div>
 
 </div>

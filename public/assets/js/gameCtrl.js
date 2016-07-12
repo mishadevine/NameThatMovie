@@ -5,24 +5,17 @@ angular.module("NameThatMovie")
     var ref = new Firebase("https://namethatmovie3.firebaseio.com/");
     $firebaseObject(ref)
     var questions;
-
-    var URL = "https://namethatmovie3.firebaseio.com/questionsANDanswers"
+    
+    var URL = "https://namethatmovie3.firebaseio.com/questionsANDanswers/Categories"
     var listRef = new Firebase(URL);
     questions = $firebaseArray(listRef);
     $scope.questions = questions;
 
-    // var URL = "https://namethatmovie3.firebaseio.com/questionsANDanswers/Answers"
-    // var listRef = new Firebase(URL);
-    // answers = $firebaseArray(listRef);
-    // $scope.questions = answers;
+    $scope.correct = function(correct) {
+      console.log("correct answer");
+    }
 
-
-    listRef.limitToFirst(1).on("value", function(snapshot) {
-      console.log(snapshot.val());
-    }, function (errorObject) {
-      console.log("The read failed: " + errorObject.code);
-    })
-
-
-
+    $scope.wrong = function(wrong) {
+      console.log("wrong answer");
+    }
   });
