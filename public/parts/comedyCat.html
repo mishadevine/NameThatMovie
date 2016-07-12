@@ -1,0 +1,29 @@
+<div class="logoFavMov">
+  <img src="assets/img/NameThatMovie_logov7.png">
+</div>
+
+<header>
+  <nav>
+    <a href="" id="menu-icon"><img src="assets/img/mobile-menu-icon-lightblue.png"></a>
+    <ul>
+      <li><a href="/#/signup">Sign Up</a></li>
+      <li><a href="/#/login">Login</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="game-div">
+  <h1>Question 1</h1>
+
+  <div class="questOne" ng-repeat="question in questions">
+    {{ question.Comedy0.Question }}
+  </div>
+
+  <div name="answers" class="questOneAnswers" ng-repeat="answer in questions ">
+    <input type="button" name="wrong" class="form-control btn btn-primary" ng-click="wrong(wrong)" value="{{ answer.ComAns0.A }}">
+    <input type="button" class="form-control btn btn-primary" ng-click="wrong(wrong)" value="{{ answer.ComAns0.B }}">
+    <input type="button" class="form-control btn btn-primary" ng-click="correct(correct)" value="{{ answer.ComAns0.C }}">
+    <input type="button" class="form-control btn btn-primary" ng-click="wrong(wrong)" value="{{ answer.ComAns0.D }}">
+  </div>
+
+</div>

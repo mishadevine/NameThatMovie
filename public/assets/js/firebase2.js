@@ -5,12 +5,17 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
       controller: "MasterCtrl",
     }).when("/game", {
       templateUrl: "parts/game.html",
-      // controller: "GameCtrl",
     }).when("/action", {
       templateUrl: "parts/actionCat.html",
       controller: "GameCtrl",
     }).when("/kids", {
       templateUrl: "parts/kidsCat.html",
+      controller: "GameCtrl",
+    }).when("/comedy", {
+      templateUrl: "parts/comedyCat.html",
+      controller: "GameCtrl",
+    }).when("/adultComedy", {
+      templateUrl: "parts/adultComCat.html",
       controller: "GameCtrl",
     }).when("/login", {
       templateUrl: "parts/login.html",
@@ -61,6 +66,16 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
     // Redirect to the kids category page
     $scope.kids = function() {
       $location.path("/kids");
+    }
+
+    // Redirect to the comedy category page
+    $scope.comedy = function() {
+      $location.path("/comedy");
+    }
+
+    // Redirect to the kids category page
+    $scope.adultCom = function() {
+      $location.path("/adultComedy");
     }
 
     // Redirect to the recommendations page
