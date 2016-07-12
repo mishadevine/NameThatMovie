@@ -8,7 +8,10 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
       // controller: "GameCtrl",
     }).when("/action", {
       templateUrl: "parts/actionCat.html",
-      controller: "ActionCtrl",
+      controller: "GameCtrl",
+    }).when("/kids", {
+      templateUrl: "parts/kidsCat.html",
+      controller: "GameCtrl",
     }).when("/login", {
       templateUrl: "parts/login.html",
       controller: "MasterCtrl",
@@ -52,7 +55,12 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
 
     // Redirect to the action category page
     $scope.action = function() {
-      $location.path("/actionCat");
+      $location.path("/action");
+    }
+
+    // Redirect to the kids category page
+    $scope.kids = function() {
+      $location.path("/kids");
     }
 
     // Redirect to the recommendations page
