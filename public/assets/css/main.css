@@ -84,12 +84,16 @@ nav img {
   }
   .theInputs {
     margin: auto;
-    margin-top: 100px;
+    margin-top: 50px;
     width: 60%;
+  }
+  .theInputs h1 {
+    margin-bottom: 30px;
   }
   .random {
     /*color: #1976d2;*/
-    color: #212121;
+    color: #727272;
+    /*color: #212121;*/
     background-color: rgb(187, 222, 251);
     border-color: rgb(187, 222, 251);
     border-radius: 5px;
@@ -137,6 +141,7 @@ nav img {
     margin-top: 50px;
   }
   .questOne {
+    color: #212121;
     text-align: center;
     font-size: 20px;
     margin-bottom: 20px;
@@ -145,6 +150,9 @@ nav img {
     margin-bottom: 20px;
   }
   .questOneAnswers input {
+    color: #727272;
+    background-color: rgb(187, 222, 251);
+    border-color: rgb(187, 222, 251);
     margin-bottom: 20px;
   }
   /***** profile page *****/
