@@ -219,7 +219,7 @@ nav img {
   }
   .movieList ul li {
     list-style-type: none;
-    font-size: 15px;
+    font-size: 18px;
     color: #212121;
   }
   .edit, .delete{
@@ -233,7 +233,7 @@ nav img {
   }
   .delete {
     margin-left: 290px;
-    margin-top: -80px;
+    margin-top: -90px;
   }
   .movieList li {
     margin-right: 40px;
