@@ -161,6 +161,11 @@ nav img {
     margin-left: 120px;
     margin-top: 30px;
   }
+  .logout {
+    color: #212121;
+    background-color: #f8bbd0;
+    border-color: #f8bbd0;
+  }
 
   /***** recommendation movies page *****/
   .recommend h1 {
