@@ -217,6 +217,11 @@ nav img {
     background-color: #1976d2;
     color: #fff;
   }
+  .movieList {
+    overflow: auto;
+    width: 400px;
+    height: 240px;
+  }
   .movieList ul li {
     list-style-type: none;
     font-size: 18px;
