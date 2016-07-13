@@ -77,6 +77,9 @@ nav img {
   }
 
   /***** home page *****/
+  .wrapper {
+    margin-top: 100px;
+  }
   .logo img {
     width: 55%;
     margin-left: 85px;
