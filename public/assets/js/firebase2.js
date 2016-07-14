@@ -90,6 +90,7 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
 
     // Creating a user
     $scope.createUser = function() {
+      console.log('FIRE!!')
       $scope.authObj.$createUser({
         email: $scope.email,
         password: $scope.password
@@ -121,11 +122,13 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
         console.log("Logged in as:", authData.uid);
           //Adding user to database
           var usersRef = new Firebase("https://namethatmovie3.firebaseio.com/users/" + authData.uid);
-          var obj = $firebaseObject(usersRef);
-          obj.userInformation = {};
-          obj.$save().then(function(usersRef) {
-          ref.key() === obj.$id;
-          });
+          var obj = $firebaseObject(usersRef)
+            if(obj.score = 0){
+              obj.gameScore = {};
+              obj.$save().then(function(usersRef) {
+                ref.key() === obj.$id;
+              });
+            }
 
         $location.path('/profile');
       }).catch(function(error) {
