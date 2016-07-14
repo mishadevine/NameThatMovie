@@ -1,5 +1,5 @@
 angular.module("NameThatMovie")
-  .controller("GameCtrl", function($scope,$firebaseArray,$routeParams){
+  .controller("GameCtrl", function($scope,$firebaseArray,$routeParams,$timeout){
 
     var URL = "https://namethatmovie3.firebaseio.com/questionsANDanswers/Categories/" + $routeParams.catName + "/Question0";
     var listRef = new Firebase(URL);
@@ -12,7 +12,7 @@ angular.module("NameThatMovie")
     var nextQuestion = function() {
       //$timeout to allow time to pass before next question
       // increases our counter for question numbers
-
+      $timeout(5000);
       ++counter;
       var URL = "https://namethatmovie3.firebaseio.com/questionsANDanswers/Categories/" + $routeParams.catName + "/Question" + counter;
       var listRef = new Firebase(URL);
