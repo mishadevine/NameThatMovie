@@ -22,7 +22,6 @@
 <div class="movieList">
     <ul class="">
         <li ng-repeat="movie in movies">
-            <!-- <pre>{{ movie | json }} </pre> -->
             {{ movie.$value }}
             <a href="#" ng-click="removeMovie(movie)"><img src="assets/img/delete-white.png" class="delete"> </a>
         </li>

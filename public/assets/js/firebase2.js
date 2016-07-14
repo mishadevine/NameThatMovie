@@ -8,15 +8,6 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
     }).when("/categories/:catName", {
       templateUrl: "parts/categories.html",
       controller: "GameCtrl",
-    }).when("/kids", {
-      templateUrl: "parts/kidsCat.html",
-      controller: "GameCtrl",
-    }).when("/comedy", {
-      templateUrl: "parts/comedyCat.html",
-      controller: "GameCtrl",
-    }).when("/adultComedy", {
-      templateUrl: "parts/adultComCat.html",
-      controller: "GameCtrl",
     }).when("/login", {
       templateUrl: "parts/login.html",
       controller: "MasterCtrl",
