@@ -13,23 +13,20 @@
 </header>
 
 <div class="game-div">
-  <h1>Question 1</h1>
-  <h4>{{score}}</h4>
+  <h1 class="questNum">{{questions[4].$value}}</h1>
+  <h4>Score: {{score}}</h4>
 
   <div class="question">
-    {{questions[4].$value}}
+    {{questions[5].$value}}
   </div>
 
-  <p ng-show="colorWrongOne">
-    HEART
-  </p>
+
 
   <div name="answers" class="questAnswers" ng-repeat="answer in questions  | limitTo : 4 ">
+    <div class="fav">
+      <a href="" type="button"><img src="assets/img/heart.png"></a>
+    </div>
     <button ng-click="checkAnswer(answer)" class="form-control btn" ng-class="{correct: answer.$id === colorRightOne, wrong: answer.$id === colorWrongOne}"> {{answer.Answer}} </button>
-  </div>
-
-  <div class="score">
-
   </div>
 
   <div class="random">

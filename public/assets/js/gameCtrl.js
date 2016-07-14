@@ -26,7 +26,7 @@ angular.module("NameThatMovie")
         console.log("YOURE RIGHT!")
         $scope.message = "You are correct!";
         $scope.score = $scope.score + 10;
-        // something to trigger ng-class to turn right one green
+        // something to trigger ng-class to turn rightone green
         //find the current question and turn it red using the same method
         $scope.colorRightOne = answer.$id;
         nextQuestion();
@@ -34,7 +34,7 @@ angular.module("NameThatMovie")
         $scope.message = "Try Again";
         $scope.colorWrongOne = answer.$id
         console.log("TRY AGAIN", $scope.colorWrongOne)
-        nextQuestion();
+        // nextQuestion();
         //find $id of questions[??].Correct
         // so you can sent answer.Correct to colorRightOne
         // get for Auth and if they are logged in show heart

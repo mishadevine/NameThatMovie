@@ -2,10 +2,7 @@ body {
   background-color: #1976d2;
   color: #fff;
 }
-h1 {
-  font-family: 'DK Lemon Yellow Sun';
-  text-align: center;
-}
+
 
 /************************* Home Page **************************/
 .login {
@@ -41,7 +38,10 @@ nav img {
 /************************* Responsive **************************/
 @media (max-width: 400px) {
   /***** menu icon *****/
-
+  h1 {
+    font-family: 'DK Lemon Yellow Sun';
+    text-align: center;
+  }
   header {
 		position: absolute;
     margin-left: 300px;
@@ -141,6 +141,23 @@ nav img {
     width: 70%;
     margin: auto;
     margin-top: 50px;
+  }
+  .game-div h4 {
+    float: left;
+    margin-top: -60px;
+    margin-left: -20px;
+  }
+  .fav img{
+    float: right;
+    margin-right: -40px;
+    width: 30px;
+    height: auto;
+  }
+  .fav img:hover {
+    color: red;
+  }
+  .questNum {
+    margin-bottom: 30px;
   }
   .question {
     color: #212121;
