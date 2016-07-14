@@ -157,6 +157,16 @@ nav img {
     border-color: rgb(187, 222, 251);
     margin-bottom: 20px;
   }
+
+  .correct {
+    background-color: green;
+  }
+  
+  .wrong {
+    background-color: red;
+  }
+
+
   /***** profile page *****/
   .logoProf img {
     width: 40%;

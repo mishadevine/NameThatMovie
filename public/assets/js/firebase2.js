@@ -5,8 +5,8 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
       controller: "MasterCtrl",
     }).when("/game", {
       templateUrl: "parts/game.html",
-    }).when("/action", {
-      templateUrl: "parts/actionCat.html",
+    }).when("/categories/:catName", {
+      templateUrl: "parts/categories.html",
       controller: "GameCtrl",
     }).when("/kids", {
       templateUrl: "parts/kidsCat.html",
@@ -56,11 +56,6 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
     // Redirect to the game page
     $scope.game = function() {
       $location.path("/game");
-    }
-
-    // Redirect to the action category page
-    $scope.action = function() {
-      $location.path("/action");
     }
 
     // Redirect to the kids category page
@@ -124,6 +119,14 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
     $scope.fbLogin = function() {
       $scope.authObj.$authWithOAuthPopup("facebook").then(function(authData) {
         console.log("Logged in as:", authData.uid);
+          //Adding user to database
+          var usersRef = new Firebase("https://namethatmovie3.firebaseio.com/users/" + authData.uid);
+          var obj = $firebaseObject(usersRef);
+          obj.userInformation = {};
+          obj.$save().then(function(usersRef) {
+          ref.key() === obj.$id;
+          });
+
         $location.path('/profile');
       }).catch(function(error) {
         console.log("Authentication failed:", error);

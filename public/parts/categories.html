@@ -1,0 +1,52 @@
+<div class="logoFavMov">
+  <img src="assets/img/NameThatMovie_logov8.png">
+</div>
+
+<header>
+  <nav>
+    <a href="" id="menu-icon"><img src="assets/img/mobile-menu-icon-white.png"></a>
+    <ul>
+      <li><a href="/#/signup">Sign Up</a></li>
+      <li><a href="/#/login">Login</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="game-div">
+  <h1>Question 1</h1>
+  <h4>{{score}}</h4>
+
+  <div class="questOne">
+    {{questions[4].$value}}
+  </div>
+
+  <!-- <pre>
+    {{questions | json}}
+  </pre> -->
+
+  <!-- <button ng-click="checkAnswer()" class="form-control btn btn-primary"> {{questions[0].Answer}} </button>
+  <button ng-click="checkAnswer()" class="form-control btn btn-primary"> {{questions[1].Answer}} </button>
+  <button ng-click="checkAnswer()" class="form-control btn btn-primary"> {{questions[2].Answer}} </button>
+  <button ng-click="checkAnswer()" class="form-control btn btn-primary"> {{questions[3].Answer}} </button> -->
+  <!-- <button ng-click="checkAnswer()" > {{questions}} </button>
+  <button ng-click="checkAnswer()" > {{questions}} </button>
+  <button ng-click="checkAnswer()" > {{questions}} </button> -->
+
+  <p ng-show="colorWrongOne">
+    HEART
+  </p>
+  <div name="answers" class="questOneAnswers" ng-repeat="answer in questions  | limitTo : 4 ">
+    <!-- <pre>{{answer}}</pre> -->
+
+    <button ng-click="checkAnswer(answer)" class="form-control btn" ng-class="{correct: answer.$id === colorRightOne, wrong: answer.$id === colorWrongOne}"> {{answer.Answer}} </button>
+    <!-- <input type="button" name="wrong" class="form-control btn btn-primary" ng-click="wrong(wrong)" value="{{ answer.ActAns0.A }}">
+    <input type="button" class="form-control btn btn-primary" ng-click="wrong(wrong)" value="{{ answer.ActAns0.B }}">
+    <input type="button" class="form-control btn btn-primary" ng-click="correct(correct)" value="{{ answer.ActAns0.C }}">
+    <input type="button" class="form-control btn btn-primary" ng-click="wrong(wrong)" value="{{ answer.ActAns0.D }}"> -->
+  </div>
+
+  <div class="random">
+    {{message}}
+  </div>
+
+</div>
