@@ -36,7 +36,7 @@ nav img {
 }
 
 /************************* Responsive **************************/
-@media (max-width: 400px) {
+@media only screen and (max-width: 400px) {
   /***** menu icon *****/
   h1 {
     font-family: 'DK Lemon Yellow Sun';
@@ -80,7 +80,7 @@ nav img {
   .wrapper {
     margin-top: 100px;
   }
-  .logo img {
+  .logo {
     width: 55%;
     margin-left: 85px;
     margin-top: 30px;
@@ -188,7 +188,6 @@ nav img {
   .logoProf img {
     width: 40%;
     margin-left: 120px;
-    margin-top: 30px;
   }
   .logout {
     color: #212121;

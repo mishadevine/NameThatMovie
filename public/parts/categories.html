@@ -20,10 +20,8 @@
     {{questions[5].$value}}
   </div>
 
-
-
   <div name="answers" class="questAnswers" ng-repeat="answer in questions  | limitTo : 4 ">
-    <div class="fav">
+    <div class="fav" ng-click="savFav()">
       <a href="" type="button"><img src="assets/img/heart.png"></a>
     </div>
     <button ng-click="checkAnswer(answer)" class="form-control btn" ng-class="{correct: answer.$id === colorRightOne, wrong: answer.$id === colorWrongOne}"> {{answer.Answer}} </button>

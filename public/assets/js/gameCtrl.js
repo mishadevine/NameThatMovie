@@ -39,7 +39,10 @@ angular.module("NameThatMovie")
         // so you can sent answer.Correct to colorRightOne
         // get for Auth and if they are logged in show heart
         // use $scope.colorRightOne or make a new $scope
-
       }
+    }
+
+    $scope.savFav = function () {
+      console.log("Movie was saved");
     }
   });
