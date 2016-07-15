@@ -12,12 +12,15 @@ angular.module("NameThatMovie")
     var nextQuestion = function() {
       //$timeout to allow time to pass before next question
       // increases our counter for question numbers
-      $timeout(5000);
       ++counter;
-      var URL = "https://namethatmovie3.firebaseio.com/questionsANDanswers/Categories/" + $routeParams.catName + "/Question" + counter;
-      var listRef = new Firebase(URL);
-      questions = $firebaseArray(listRef);
-      $scope.questions = questions;
+      $timeout(function () {
+        var URL = "https://namethatmovie3.firebaseio.com/questionsANDanswers/Categories/" + $routeParams.catName + "/Question" + counter;
+        var listRef = new Firebase(URL);
+        questions = $firebaseArray(listRef);
+        $scope.questions = questions;
+      },5000);
+
+
     }
 
     $scope.checkAnswer = function (answer) {
@@ -34,7 +37,7 @@ angular.module("NameThatMovie")
         $scope.message = "Try Again";
         $scope.colorWrongOne = answer.$id
         console.log("TRY AGAIN", $scope.colorWrongOne)
-        // nextQuestion();
+        nextQuestion();
         //find $id of questions[??].Correct
         // so you can sent answer.Correct to colorRightOne
         // get for Auth and if they are logged in show heart
