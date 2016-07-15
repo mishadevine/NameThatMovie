@@ -1,4 +1,4 @@
-angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
+angular.module("NameThatMovie",["firebase","ngRoute","ngMessages","ngAnimate"])
   .config(["$routeProvider", function($routeProvider) {
     $routeProvider.when("/", {
       templateUrl: "parts/home.html",

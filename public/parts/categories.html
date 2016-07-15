@@ -21,10 +21,10 @@
   </div>
 
   <div name="answers" class="questAnswers" ng-repeat="answer in questions  | limitTo : 4 ">
-    <div class="fav" ng-click="savFav()">
+    <div class="fav" ng-click="savFav()" ng-show="isShowing($index)">
       <a href="" type="button"><img src="assets/img/heart.png"></a>
     </div>
-    <button ng-click="checkAnswer(answer)" class="form-control btn" ng-class="{correct: answer.$id === colorRightOne, wrong: answer.$id === colorWrongOne}"> {{answer.Answer}} </button>
+    <button ng-click="checkAnswer(answer,$index)" class="form-control btn" ng-class="{correct: answer.$id === colorRightOne, wrong: answer.$id === colorWrongOne}"> {{answer.Answer}} </button>
   </div>
 
   <div class="random">
