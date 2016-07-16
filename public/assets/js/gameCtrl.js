@@ -1,5 +1,11 @@
 angular.module("NameThatMovie")
-  .controller("GameCtrl", function($scope,$firebaseArray,$routeParams,$timeout){
+  .controller("GameCtrl", function($scope,$firebaseArray,$routeParams,$timeout,$firebaseAuth){
+
+    //Connect to Firebase
+    // var ref = new Firebase("https://namethatmovie3.firebaseio.com/");
+    //
+    // $scope.authObj = $firebaseAuth(ref);
+    // var movies
 
     var URL = "https://namethatmovie3.firebaseio.com/questionsANDanswers/Categories/" + $routeParams.catName + "/Question0"
     var listRef = new Firebase(URL)
@@ -22,26 +28,46 @@ angular.module("NameThatMovie")
         var listRef = new Firebase(URL)
         questions = $firebaseArray(listRef)
         $scope.questions = questions
-      },5000)
+      },2000)
 
-
+      if (counter > 9) {
+        $scope.endgameScore = $scope.score;
+        $scope.score = {};
+        $scope.endGame = "Your total score is " + $scope.endgameScore + "!"
+      }
     }
 
     $scope.checkAnswer = function (answer,index) {
-      $scope.activeAnswerIndex = index
       console.log("check is this is right ", answer)
 
       if(answer.Correct){
         console.log("YOURE RIGHT!")
         $scope.message = "You are correct!"
         $scope.score = $scope.score + 10
-        // something to trigger ng-class to turn rightone green
-        //find the current question and turn it red using the same method
         $scope.colorRightOne = answer.$id
         nextQuestion()
       }else{
-        $scope.message = "Try Again"
+        $scope.message = "You answered wrong. Click the heart to save the right answer to your recommendations list."
         $scope.colorWrongOne = answer.$id
+
+
+        // $scope.authObj.$onAuth(function(authData) {
+        // if (authData) {
+        //   var URL = "https://namethatmovie3.firebaseio.com/users/" + authData.uid + "/recommendations";
+        //   $scope.userID = authData.uid;
+        //   var listRef = new Firebase(URL);
+        //   movies = $firebaseArray(listRef);
+        //   $scope.movies = movies;
+        //   } else {
+        //   console.log("Logged out");
+        //   }
+        // });
+
+
+        $scope.isShowing = function (index) {
+          return $scope.activeAnswerIndex === index
+          console.log($scope.activeAnswerIndex)
+        }
 
         angular.forEach($scope.questions, function(value, key) {
           if(value.Correct) {
@@ -52,21 +78,21 @@ angular.module("NameThatMovie")
           }
           console.log(key, value);
         });
-        $scope.isShowing = function (index) {
-          return $scope.activeAnswerIndex === index
-          console.log($scope.activeAnswerIndex)
-        }
 
         console.log("TRY AGAIN", $scope.colorWrongOne)
         nextQuestion()
-        //find $id of questions[??].Correct
-        // so you can sent answer.Correct to colorRightOne
-        // get for Auth and if they are logged in show heart
-        // use $scope.colorRightOne or make a new $scope
       }
     }
 
     $scope.savFav = function () {
       console.log("Movie was saved")
     }
+
+    // $scope.movies = movies;
+    // Remove from database
+    // $scope.removeMovie = function(movie) {
+    //   $scope.movies.$remove(movie).then(function(ref) {
+    //     console.log("removed movie");
+    //   });
+    // }
   });

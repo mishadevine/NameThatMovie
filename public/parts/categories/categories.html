@@ -14,7 +14,7 @@
 
 <div class="game-div">
   <h1 class="questNum">{{questions[4].$value}}</h1>
-  <h4>Score: {{score}}</h4>
+  <h4 ng-hide="endgameScore">Score: {{score}}</h4>
 
   <div class="question">
     {{questions[5].$value}}
@@ -27,8 +27,12 @@
     <button ng-click="checkAnswer(answer,$index)" class="form-control btn" ng-class="{correct: answer.$id === colorRightOne, wrong: answer.$id === colorWrongOne}"> {{answer.Answer}} </button>
   </div>
 
-  <div class="random">
-    {{message}}
+  <div class="message" ng-class="{correctMessage: colorRightOne, wrongMessage: colorWrongOne}">
+    <strong>{{message}}</strong>
+  </div>
+
+  <div class="endOfGame">
+    <strong>{{endGame}}</strong>
   </div>
 
 </div>

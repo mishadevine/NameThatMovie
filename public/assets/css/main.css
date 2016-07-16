@@ -137,9 +137,6 @@ nav img {
 
 
   /***** game page *****/
-  /*.fade {
-
-  }*/
   .game-div {
     width: 70%;
     margin: auto;
@@ -177,13 +174,24 @@ nav img {
     border-color: rgb(187, 222, 251);
     margin-bottom: 20px;
   }
-
   .correct {
     background-color: green;
   }
-
   .wrong {
     background-color: red;
+  }
+  .message {
+    text-align: center;
+  }
+  .correctMessage {
+    font-size: 30px;
+  }
+  .wrongMessage {
+    font-size: 20px;
+  }
+  .endOfGame {
+    font-size: 30px;
+    text-align: center;
   }
 
 
