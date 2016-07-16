@@ -1,30 +1,30 @@
-angular.module("NameThatMovie",["firebase","ngRoute","ngMessages","ngAnimate"])
+angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
   .config(["$routeProvider", function($routeProvider) {
     $routeProvider.when("/", {
-      templateUrl: "parts/home.html",
+      templateUrl: "parts/notSignedIn/home.html",
       controller: "MasterCtrl",
     }).when("/game", {
-      templateUrl: "parts/game.html",
+      templateUrl: "parts/notSignedIn/game.html",
     }).when("/categories/:catName", {
-      templateUrl: "parts/categories.html",
+      templateUrl: "parts/categories/categories.html",
       controller: "GameCtrl",
     }).when("/login", {
-      templateUrl: "parts/login.html",
+      templateUrl: "parts/notSignedIn/login.html",
       controller: "MasterCtrl",
     }).when("/signup", {
-      templateUrl: "parts/signup.html",
+      templateUrl: "parts/notSignedIn/signup.html",
       controller: "MasterCtrl",
     }).when("/profile", {
-      templateUrl: "parts/profile.html",
+      templateUrl: "parts/signedIn/profile.html",
       controller: "MasterCtrl",
     }).when("/recMovies", {
-      templateUrl: "parts/recMovies.html",
+      templateUrl: "parts/signedIn/recMovies.html",
       controller: "RecMoviesCtrl",
     }).when("/favMovies", {
-      templateUrl: "parts/favMovies.html",
+      templateUrl: "parts/signedIn/favMovies.html",
       controller: "FavMoviesCtrl",
     }).when("/addQuest", {
-      templateUrl: "parts/addQuest.html",
+      templateUrl: "parts/signedIn/addQuest.html",
       controller: "AddQuestCtrl",
     })
     .otherwise("/");
