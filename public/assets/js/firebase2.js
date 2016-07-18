@@ -29,7 +29,7 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
     })
     .otherwise("/");
   }])
-  .controller("MasterCtrl", function($scope,$firebaseAuth,$firebaseObject,$firebaseArray,$location) {
+  .controller("MasterCtrl", function($scope,$rootScope,$firebaseAuth,$firebaseObject,$firebaseArray,$location) {
 
     var ref = new Firebase("https://namethatmovie3.firebaseio.com/");
     $scope.authObj = $firebaseAuth(ref);
@@ -47,26 +47,9 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
     // Redirect to the game page
     $scope.game = function() {
       $location.path("/game");
-    }
-
-    // Redirect to the kids category page
-    $scope.kids = function() {
-      $location.path("/kids");
-    }
-
-    // Redirect to the comedy category page
-    $scope.comedy = function() {
-      $location.path("/comedy");
-    }
-
-    // Redirect to the kids category page
-    $scope.adultCom = function() {
-      $location.path("/adultComedy");
-    }
-
-    // Redirect to the recommendations page
-    $scope.recPage = function() {
-      $location.path("/recMovies");
+      $scope.showMenu = function () {
+        if (scope.currentUser) console.log("showing menu")
+      }
     }
 
     // Redirect to the favorite movies page
@@ -87,6 +70,7 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
         password: $scope.password
       }).then(function(userData) {
         console.log("User " + userData.uid + " created successfully!");
+        $rootScope.currentUser = userData;
         return $scope.authObj.$authWithPassword({
           email: $scope.email,
           password: $scope.password
@@ -111,6 +95,7 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
     $scope.fbLogin = function() {
       $scope.authObj.$authWithOAuthPopup("facebook").then(function(authData) {
         console.log("Logged in as:", authData.uid);
+          $rootScope.currentUser = authData
           //Adding user to database
           var usersRef = new Firebase("https://namethatmovie3.firebaseio.com/users/" + authData.uid);
           var obj = $firebaseObject(usersRef)
@@ -120,7 +105,6 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
                 ref.key() === obj.$id;
               });
             }
-
         $location.path('/profile');
       }).catch(function(error) {
         console.log("Authentication failed:", error);
@@ -134,7 +118,7 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
         password: $scope.login.password
       }).then(function(authData) {
         console.log("Logged in as:", authData.uid);
-        $location.path('/profile');;
+        $location.path('/profile');
       }).catch(function(error) {
         console.error("Authentication failed:", error);
       });
