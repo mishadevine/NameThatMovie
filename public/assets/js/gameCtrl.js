@@ -5,74 +5,56 @@ angular.module("NameThatMovie")
     var listRef = new Firebase(URL)
     questions = $firebaseArray(listRef)
     $scope.questions = questions
-    // $scope.movies = movies
-    // $scope.score = score
-
-
     $scope.authObj = $firebaseAuth(listRef)
+    ``$scope.currentUser = true
 
-    $scope.authObj.$onAuth(function(authData) {
+    $scope.authObj.$onAuth(function(authData) { // connecting to the score section of the database
       if (authData) {
-        console.log("Logged in as:", authData.uid)
         $scope.currentUser = authData
-        var URL = "https://namethatmovie3.firebaseio.com/users/" + authData.uid + "/recommendations"
+        var URL = "https://namethatmovie3.firebaseio.com/users/" + authData.uid + "/categories/score"
         $scope.userID = authData.uid
-        var ref = new Firebase(URL)
-        movies = $firebaseArray(ref)
-        $scope.movies = movies
+        var totalScore = new Firebase(URL)
+        scores = $firebaseArray(totalScore)
+        $scope.scores = scores
       } else {
         console.log("Logged out")
       }
     })
 
-
-    var counter = 0
-    $scope.score = 0
+    var counter = 0 // setting the counter to 0
+    $scope.score = 0 // setting score to start out as 0
 
     var nextQuestion = function() {
       // increases our counter for question numbers
       ++counter
       //$timeout to allow time to pass before next question
       $timeout(function () {
-        $scope.colorWrongOne = null
-        $scope.colorRightOne = null
-        $scope.activeAnswerIndex = null
-        $scope.message = null
+        $scope.colorWrongOne = null // "hiding/resetting" the wrong answer's highlighted color
+        $scope.colorRightOne = null // "hiding/resetting" the right answer's highlighted color
+        $scope.activeAnswerIndex = null // "hiding/resetting" the favorites heart
+        $scope.message = null // "hiding/resetting" the message that appears at the bottom
         var URL = "https://namethatmovie3.firebaseio.com/questionsANDanswers/Categories/" + $routeParams.catName + "/Question" + counter
         var listRef = new Firebase(URL)
         questions = $firebaseArray(listRef)
         $scope.questions = questions
       },4000)
 
-      if (counter > 9) {
+      // saving user's score to database as well as resetting the score that is
+      if (counter > 9) { // displayed with all questions and displaying a total final score at the end of the game
         $scope.endgameScore = $scope.score;
         $scope.score = {};
         $scope.endGame = "Your total score is " + $scope.endgameScore + "!"
 
-        $scope.authObj.$onAuth(function(authData) {
-          if (authData) {
-            console.log("Logged in as:", authData.uid)
-            $scope.currentUser = authData
-            var URL = "https://namethatmovie3.firebaseio.com/users/" + authData.uid + "/categories/score"
-            $scope.userID = authData.uid
-            var totalScore = new Firebase(URL)
-            scores = $firebaseArray(totalScore)
-            $scope.scores = scores
-            if ($scope.currentUser) {
-              $scope.scores.$add($scope.endgameScore).then(function(scores) {
-                $scope.endgameScore = {};
-                console.log("added score")
-              })
-            }
-
-          } else {
-            console.log("Logged out")
-          }
-        })
-
+        if ($scope.currentUser) {
+          $scope.scores.$add($scope.endgameScore).then(function(scores) {
+            $scope.endgameScore = {};
+            console.log("added score")
+          })
+        }
       }
     }
 
+    // checking to see if the answer user seleted is correct
     $scope.checkAnswer = function (answer,index) {
       console.log("check is this is right ", answer)
 
@@ -86,27 +68,43 @@ angular.module("NameThatMovie")
         $scope.message = "You answered wrong. Click the heart to save the right answer to your recommendations list."
         $scope.colorWrongOne = answer.$id
 
-        $scope.isShowing = function (index) {
+
+        $scope.isShowing = function (index) { // if user is logged in show the favorites heart
           if ( $scope.currentUser )  return $scope.activeAnswerIndex === index
           console.log($scope.activeAnswerIndex)
         }
 
-        $scope.addFav = function () {
-          $scope.movies.$add($scope.newMovie).then(function(ref) {
-            $scope.newMovie = {};
-            console.log("added movie")
-          })
-        }
-
         angular.forEach($scope.questions, function(value, key) {
-          if(value.Correct) {
-            console.log(key)
+          if(value.Correct) { // if the user selects the wrong answer grab the correct answer
+            console.log(key) // and assign the favorites heart to that answer
             $scope.activeAnswerIndex = key
             $scope.colorRightOne = value.$id
-
           }
           console.log(key, value)
         });
+
+        $scope.authObj.$onAuth(function(authData) { // connecting to the recommendations section
+          if (authData) { // of the database
+            console.log("Logged in as:", authData.uid)
+            $scope.currentUser = authData
+            var URL = "https://namethatmovie3.firebaseio.com/users/" + authData.uid + "/recommendations"
+            $scope.userID = authData.uid
+            var ref = new Firebase(URL)
+            movies = $firebaseArray(ref)
+            $scope.movies = movies
+            if ($scope.currentUser){
+              $scope.add = function () { // adding the saved movie to the database
+                $scope.movies.$add($scope.activeAnswerIndex).then(function(movies) {
+                  $scope.activeAnswerIndex = {};
+                  console.log("added movie")
+                })
+              }
+            }
+
+          } else {
+            console.log("Logged out")
+          }
+        })
 
         console.log("TRY AGAIN", $scope.colorWrongOne)
         nextQuestion()

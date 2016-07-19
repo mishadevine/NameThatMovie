@@ -94,7 +94,6 @@ nav img {
     margin-bottom: 30px;
   }
   .random {
-    /*color: #1976d2;*/
     color: #212121;
     background-color: rgb(187, 222, 251);
     border-color: rgb(187, 222, 251);
@@ -137,7 +136,7 @@ nav img {
 
 
   /***** game page *****/
-  
+
   .game-div {
     width: 70%;
     margin: auto;
@@ -175,11 +174,26 @@ nav img {
     border-color: rgb(187, 222, 251);
     margin-bottom: 20px;
   }
+  .answer {
+    color: #212121;
+    background-color: rgb(187, 222, 251);
+    border-color: rgb(187, 222, 251);
+  }
+  .answer:hover {
+    color: #ffffff;
+    background-color: #286090;
+    border-color: #286090;
+  }
   .correct {
-    background-color: green;
+    background-color: #f8bbd0;
+    border-color: #f8bbd0;
+    /*background-color: green;
+    border-color: green;*/
   }
   .wrong {
-    background-color: red;
+    color: #ffffff;
+    background-color: #F44336;
+    border-color: #F44336;
   }
   .message {
     text-align: center;
