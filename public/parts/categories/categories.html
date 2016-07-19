@@ -28,7 +28,7 @@
 
   <div name="answers" class="questAnswers" ng-repeat="answer in questions  | limitTo : 4 ">
 
-    <div class="fav" ng-click="add" ng-show="isShowing($index)">
+    <div class="fav" ng-click="add()" ng-show="isShowing($index)">
       <a href="" type="button"><img src="assets/img/heart.png"></a>
     </div>
     <button ng-click="checkAnswer(answer,$index)" class="form-control btn answer" ng-class="{correct: answer.$id === colorRightOne, wrong: answer.$id === colorWrongOne}"> {{answer.Answer}} </button>

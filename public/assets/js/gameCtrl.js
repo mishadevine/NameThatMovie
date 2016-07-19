@@ -12,11 +12,25 @@ angular.module("NameThatMovie")
         console.log(authData)
         $scope.currentUser = authData
         $rootScope.showMenu = true
-        var URL = "https://namethatmovie3.firebaseio.com/users/" + authData.uid + "/categories/score"
+        var URL = "https://namethatmovie3.firebaseio.com/users/" + authData.uid + "/categories/score/" + $routeParams.catName 
         $scope.userID = authData.uid
         var totalScore = new Firebase(URL)
         scores = $firebaseArray(totalScore)
         $scope.scores = scores
+      } else {
+        console.log("Logged out")
+      }
+    })
+
+    $scope.authObj.$onAuth(function(authData) { // connecting to the recommendations section
+      if (authData) { // of the database
+        console.log("Logged in as:", authData.uid)
+        $scope.currentUser = authData
+        var URL = "https://namethatmovie3.firebaseio.com/users/" + authData.uid + "/recommendations/" + $routeParams.catName
+        $scope.userID = authData.uid
+        var ref = new Firebase(URL)
+        movies = $firebaseArray(ref)
+        $scope.movies = movies
       } else {
         console.log("Logged out")
       }
@@ -84,28 +98,13 @@ angular.module("NameThatMovie")
           console.log(key, value)
         });
 
-        $scope.authObj.$onAuth(function(authData) { // connecting to the recommendations section
-          if (authData) { // of the database
-            console.log("Logged in as:", authData.uid)
-            $scope.currentUser = authData
-            var URL = "https://namethatmovie3.firebaseio.com/users/" + authData.uid + "/recommendations"
-            $scope.userID = authData.uid
-            var ref = new Firebase(URL)
-            movies = $firebaseArray(ref)
-            $scope.movies = movies
-            if ($scope.currentUser){
-              $scope.add = function () { // adding the saved movie to the database
-                $scope.movies.$add($scope.activeAnswerIndex).then(function(movies) {
-                  $scope.activeAnswerIndex = {};
-                  console.log("added movie")
-                })
-              }
-            }
-
-          } else {
-            console.log("Logged out")
-          }
-        })
+        $scope.add = function () { // adding the saved movie to the database
+          $scope.movies.$add(questions[$scope.activeAnswerIndex].Answer).then(function(movies) {
+            $scope.activeAnswerIndex = {};
+            console.log("added movie")
+          })
+          console.log("hey i am working yay!")
+        }
 
         console.log("TRY AGAIN", $scope.colorWrongOne)
         nextQuestion()
