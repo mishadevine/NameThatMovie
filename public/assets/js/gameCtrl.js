@@ -6,11 +6,12 @@ angular.module("NameThatMovie")
     questions = $firebaseArray(listRef)
     $scope.questions = questions
     $scope.authObj = $firebaseAuth(listRef)
-    ``$scope.currentUser = true
 
     $scope.authObj.$onAuth(function(authData) { // connecting to the score section of the database
       if (authData) {
+        console.log(authData)
         $scope.currentUser = authData
+        $rootScope.showMenu = true
         var URL = "https://namethatmovie3.firebaseio.com/users/" + authData.uid + "/categories/score"
         $scope.userID = authData.uid
         var totalScore = new Firebase(URL)

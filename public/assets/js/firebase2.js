@@ -5,6 +5,7 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
       controller: "MasterCtrl",
     }).when("/game", {
       templateUrl: "parts/notSignedIn/game.html",
+      controller: "GameCtrl",
     }).when("/categories/:catName", {
       templateUrl: "parts/categories/categories.html",
       controller: "GameCtrl",
@@ -19,7 +20,7 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
       controller: "MasterCtrl",
     }).when("/recMovies", {
       templateUrl: "parts/signedIn/recMovies.html",
-      controller: "gameCtrl",
+      controller: "GameCtrl",
     }).when("/favMovies", {
       templateUrl: "parts/signedIn/favMovies.html",
       controller: "FavMoviesCtrl",
@@ -47,12 +48,6 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
     // Redirect to the game page
     $scope.game = function() {
       $location.path("/game");
-      // $rootScope.showMenu = function () {
-      //   if ($scope.currentUser) {
-      //     console.log("showing menu")
-      //     $scope.showMenu = true
-      //   }
-      // }
     }
 
     // Redirect to the favorite movies page
