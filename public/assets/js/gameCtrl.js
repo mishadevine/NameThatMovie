@@ -35,16 +35,13 @@ angular.module("NameThatMovie")
       } else {
         console.log("Logged out")
       }
-
     })
 
-  //   $scope.recommendations = recommendations
-  // //  Remove from database
-  //   $scope.recommendations = function(recommendation) {
-  //     $scope.recommendations.$remove(recommendation).then(function(ref) {
-  //       console.log("removed movie");
-  //     });
-  //   }
+    // $scope.recommendations = function(recommendation) {
+    //   $scope.recommendations.$remove(recommendation).then(function(ref) {
+    //     console.log("removed movie");
+    //   });
+    // }
 
     var counter = 0 // setting the counter to 0
     $scope.score = 0 // setting score to start out as 0

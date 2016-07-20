@@ -50,6 +50,11 @@ angular.module("NameThatMovie",["firebase","ngRoute","ngMessages"])
       $location.path("/game");
     }
 
+    // Redirect to the login page
+    $scope.recPage = function() {
+      $location.path("/recMovies")
+    }
+
     // Redirect to the favorite movies page
     $scope.favMoviesPage = function() {
       $location.path("/favMovies")

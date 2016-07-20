@@ -5,21 +5,21 @@ angular.module("NameThatMovie")
     var ref = new Firebase("https://namethatmovie3.firebaseio.com/");
 
     $scope.authObj = $firebaseAuth(ref);
-    var recommendations
 
     $scope.authObj.$onAuth(function(authData) {
     if (authData) {
-      var URL = "https://namethatmovie3.firebaseio.com/users/" + authData.uid + "/recommendations/" + $routeParams.catName
+      var URL = "https://namethatmovie3.firebaseio.com/users/" + authData.uid + "/recommendations"
       $scope.userID = authData.uid
       var listRef = new Firebase(URL)
       recommendations = $firebaseArray(listRef)
       $scope.recommendations = recommendations
+      console.log($scope.recommendations)
       } else {
       console.log("Logged out");
       }
     });
 
-    $scope.recommendations = recommendations
+    // $scope.recommendations = recommendations
 
 
     // Remove from database

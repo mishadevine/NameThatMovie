@@ -25,7 +25,7 @@
 <div class="movieList">
     <ul class="">
         <li ng-repeat="recommendation in recommendations">
-            {{ recommendation.$id}}
+            {{ recommendation }}
             <a href="#" ng-click="removeMovie(recommendation)"><img src="assets/img/delete-white.png" class="delete"> </a>
         </li>
     </ul>
