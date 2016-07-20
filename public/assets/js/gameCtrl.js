@@ -12,7 +12,7 @@ angular.module("NameThatMovie")
         console.log(authData)
         $scope.currentUser = authData
         $rootScope.showMenu = true
-        var URL = "https://namethatmovie3.firebaseio.com/users/" + authData.uid + "/categories/score/" + $routeParams.catName 
+        var URL = "https://namethatmovie3.firebaseio.com/users/" + authData.uid + "/categories/score/" + $routeParams.catName
         $scope.userID = authData.uid
         var totalScore = new Firebase(URL)
         scores = $firebaseArray(totalScore)
@@ -29,12 +29,22 @@ angular.module("NameThatMovie")
         var URL = "https://namethatmovie3.firebaseio.com/users/" + authData.uid + "/recommendations/" + $routeParams.catName
         $scope.userID = authData.uid
         var ref = new Firebase(URL)
-        movies = $firebaseArray(ref)
-        $scope.movies = movies
+        recommendations = $firebaseArray(ref)
+        $scope.recommendations = recommendations
+        console.log($scope.recommendations)
       } else {
         console.log("Logged out")
       }
+
     })
+
+  //   $scope.recommendations = recommendations
+  // //  Remove from database
+  //   $scope.recommendations = function(recommendation) {
+  //     $scope.recommendations.$remove(recommendation).then(function(ref) {
+  //       console.log("removed movie");
+  //     });
+  //   }
 
     var counter = 0 // setting the counter to 0
     $scope.score = 0 // setting score to start out as 0
@@ -99,7 +109,7 @@ angular.module("NameThatMovie")
         });
 
         $scope.add = function () { // adding the saved movie to the database
-          $scope.movies.$add(questions[$scope.activeAnswerIndex].Answer).then(function(movies) {
+          $scope.recommendations.$add(questions[$scope.activeAnswerIndex].Answer).then(function(movies) {
             $scope.activeAnswerIndex = {};
             console.log("added movie")
           })
@@ -111,11 +121,4 @@ angular.module("NameThatMovie")
       }
     }
 
-    // $scope.movies = movies;
-    // Remove from database
-    // $scope.removeMovie = function(movie) {
-    //   $scope.movies.$remove(movie).then(function(ref) {
-    //     console.log("removed movie");
-    //   });
-    // }
   });

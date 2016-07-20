@@ -25,6 +25,9 @@
   <div class="question">
     {{questions[5].$value}}
   </div>
+  <pre>
+    {{recommendations}}
+  </pre>
 
   <div name="answers" class="questAnswers" ng-repeat="answer in questions  | limitTo : 4 ">
 
@@ -43,8 +46,8 @@
     <strong>{{endGame}}</strong>
   </div>
 
-  <!-- <div class="playAgain" ng-show"showPlay">
+  <div class="playAgain" ng-show"showPlay">
     <button ng-click="game()" class="form-control btn"> Play Again </button>
-  </div> -->
+  </div>
 
 </div>

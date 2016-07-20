@@ -7,7 +7,6 @@
     <a href="" id="menu-icon"><img src="assets/img/mobile-menu-icon-white.png"></a>
     <ul>
       <li><a href="/#/game">Game</a></li>
-      <li><a href="/#/recMovies" class="current">Recommendations</a></li>
       <li><a href="/#/favMovies">Favorite Movies</a></li>
       <li><a href="/#/addQuest">Add Questions</a></li>
       <li ng-click="authObj.$unauth()"><a href="/#/">Logout</a></li>
@@ -19,11 +18,15 @@
   <h1>Your Recommended Movies</h1>
 </div>
 
+<pre>
+  {{recommendations}}
+</pre>
+
 <div class="movieList">
     <ul class="">
-        <li ng-repeat="movie in movies">
-            {{ movie.$value }}
-            <a href="#" ng-click="removeMovie(movie)"><img src="assets/img/delete-white.png" class="delete"> </a>
+        <li ng-repeat="recommendation in recommendations">
+            {{ recommendation.$id}}
+            <a href="#" ng-click="removeMovie(recommendation)"><img src="assets/img/delete-white.png" class="delete"> </a>
         </li>
     </ul>
 </div>
