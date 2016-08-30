@@ -18,36 +18,59 @@
   </nav>
 </header>
 
-<div class="game-div">
-  <h1 class="questNum">{{questions[4].$value}}</h1>
-  <h4 ng-hide="endgameScore">Score: {{score}}</h4>
+<div class="wrap">
+  <div class="game-div">
+    <h1 class="questNum">{{questions[4].$value}}</h1>
+    <h4 ng-hide="endgameScore">Score: {{score}}</h4>
 
-  <div class="question">
-    {{questions[5].$value}}
-  </div>
-  <pre>
-    {{recommendations}}
-  </pre>
-
-  <div name="answers" class="questAnswers" ng-repeat="answer in questions  | limitTo : 4 ">
-
-    <div class="fav" ng-click="add()" ng-show="isShowing($index)">
-      <a href="" type="button"><img src="assets/img/heart.png"></a>
+    <div class="question">
+      {{questions[5].$value}}
     </div>
-    <button ng-click="checkAnswer(answer,$index)" class="form-control btn answer" ng-class="{correct: answer.$id === colorRightOne, wrong: answer.$id === colorWrongOne}"> {{answer.Answer}} </button>
+    <!-- <pre>
+      {{recommendations}}
+    </pre> -->
 
+    <div name="answers" class="questAnswers" ng-repeat="answer in questions  | limitTo : 4 ">
+
+      <div class="fav" ng-click="add()" ng-show="isShowing($index)">
+        <a href="" type="button"><img src="assets/img/heart.png"></a>
+      </div>
+      <button ng-click="checkAnswer(answer,$index)" class="form-control btn answer" data-toggle="modal" data-target=".bs-example-modal-sm" ng-class="{correct: answer.$id === colorRightOne, wrong: answer.$id === colorWrongOne}"> {{answer.Answer}} </button>
+    </div>
+
+    <div class="message" ng-class="{correctMessage: colorRightOne, wrongMessage: colorWrongOne}">
+      <strong>{{message}}</strong>
+    </div>
+
+    <!-- Small modal -->
+  <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <h1>YOU ARE CORRECT!!</h1>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <h4 ng-hide="endgameScore">Score: {{score}}</h4>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+          <p>Not a member? <a href="#">Sign Up</a></p>
+          <p>Forgot <a href="#">Password?</a></p>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="message" ng-class="{correctMessage: colorRightOne, wrongMessage: colorWrongOne}">
-    <strong>{{message}}</strong>
-  </div>
 
-  <div class="endOfGame">
-    <strong>{{endGame}}</strong>
-  </div>
 
-  <div class="playAgain" ng-show"showPlay">
-    <button ng-click="game()" class="form-control btn"> Play Again </button>
-  </div>
+    <div class="endOfGame">
+      <strong>{{endGame}}</strong>
+    </div>
 
+    <!-- <div class="playAgain" ng-show"showPlay">
+      <button ng-click="game()" class="form-control btn"> Play Again </button>
+    </div> -->
+
+  </div>
 </div>

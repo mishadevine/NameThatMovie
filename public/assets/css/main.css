@@ -1,9 +1,18 @@
 body {
-  background-color: #1976d2;
+  /*background-color: #1976d2;*/
   color: #fff;
+  background-image: url("../img/back1.png");
+  background-attachment: fixed;
 }
 
-
+.wrap {
+  /*background-color: #1976d2;*/
+  background-color: rgba(25,118,210,0.9);
+  width: 350px;
+  margin: auto;
+  margin-top: 50px;
+  padding: 15px;
+}
 /************************* Home Page **************************/
 .login {
   margin-bottom: 100px;
@@ -136,7 +145,12 @@ nav img {
 
 
   /***** game page *****/
-
+  .modal  {
+    margin-top: 100px;
+  }
+  .modal-content {
+    background-color: #1976d2;
+  }
   .game-div {
     width: 70%;
     margin: auto;
@@ -144,8 +158,8 @@ nav img {
   }
   .game-div h4 {
     float: left;
-    margin-top: -60px;
-    margin-left: -20px;
+    margin-top: -110px;
+    margin-left: 70px;
   }
   .fav img{
     float: right;
@@ -167,6 +181,19 @@ nav img {
   }
   .questAnswers {
     margin-bottom: 20px;
+    animation-duration: 1s;
+    animation-name: slidein;
+  }
+  @keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
   }
   .questAnswers input {
     color: #727272;
@@ -185,15 +212,13 @@ nav img {
     border-color: #286090;
   }
   .correct {
-    background-color: #f8bbd0;
-    border-color: #f8bbd0;
-    /*background-color: green;
-    border-color: green;*/
+
+    background-color: green;
+    border-color: green;
   }
   .wrong {
-    color: #ffffff;
-    background-color: #F44336;
-    border-color: #F44336;
+    background-color: red;
+    border-color: red;
   }
   .message {
     text-align: center;

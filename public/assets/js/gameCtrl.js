@@ -96,6 +96,10 @@ angular.module("NameThatMovie")
           console.log($scope.activeAnswerIndex)
         }
 
+        // $scope.modalWrong = function () {
+        //
+        // }
+
         angular.forEach($scope.questions, function(value, key) {
           if(value.Correct) { // if the user selects the wrong answer grab the correct answer
             console.log(key) // and assign the favorites heart to that answer
